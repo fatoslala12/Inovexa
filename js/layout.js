@@ -64,14 +64,29 @@
     <div class="site-nav-actions">
       <a href="${WHATSAPP_URL}" class="site-nav-wa" target="_blank" rel="noopener" aria-label="WhatsApp">${waIcon}</a>
       <a href="${base}pages/kontakt.html" class="site-nav-cta">Kërko Ofertë</a>
-      <button class="site-nav-toggle" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      <button class="site-nav-toggle" id="hamburger" type="button" aria-label="Hap menunë" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
-<div class="site-mobile-menu" id="mobileMenu">
-  ${navItems.map(n => `<a href="${n.href}" class="${page === n.id ? 'active' : ''}">${n.label}</a>`).join('')}
-  <a href="${WHATSAPP_URL}" class="site-mobile-wa" target="_blank" rel="noopener">${waIcon} Na shkruani në WhatsApp</a>
-  <a href="${base}pages/kontakt.html" class="site-mobile-cta">Kërko Ofertë</a>
+<div class="site-mobile-overlay" id="mobileOverlay" aria-hidden="true">
+  <button class="site-mobile-backdrop" id="mobileBackdrop" type="button" aria-label="Mbyll menunë" tabindex="-1"></button>
+  <div class="site-mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigimi">
+    <div class="site-mobile-menu-head">
+      <span class="site-mobile-menu-title">Menu</span>
+      <button class="site-mobile-close" id="mobileClose" type="button" aria-label="Mbyll menunë">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="site-mobile-nav">
+      ${navItems.map(n => `<a href="${n.href}" class="site-mobile-link ${page === n.id ? 'active' : ''}">${n.label}</a>`).join('')}
+    </nav>
+    <div class="site-mobile-actions">
+      <a href="${WHATSAPP_URL}" class="site-mobile-wa" target="_blank" rel="noopener">${waIcon}<span>Na shkruani në WhatsApp</span></a>
+      <a href="${base}pages/kontakt.html" class="site-mobile-cta">Kërko Ofertë</a>
+    </div>
+  </div>
 </div>`;
 
   const footerHTML = `
@@ -115,4 +130,33 @@
   if (footerEl) footerEl.outerHTML = footerHTML;
 
   window.INOVEXA_PHONE = { raw: PHONE_RAW, tel: PHONE_TEL, display: PHONE_DISPLAY, whatsapp: WHATSAPP_URL };
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileBackdrop = document.getElementById('mobileBackdrop');
+  const mobileClose = document.getElementById('mobileClose');
+
+  function setMobileMenu(open) {
+    if (!mobileOverlay || !hamburger) return;
+    document.body.classList.toggle('menu-open', open);
+    mobileOverlay.classList.toggle('open', open);
+    mobileOverlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Mbyll menunë' : 'Hap menunë');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  if (hamburger && mobileOverlay) {
+    hamburger.addEventListener('click', () => setMobileMenu(!mobileOverlay.classList.contains('open')));
+    mobileBackdrop?.addEventListener('click', () => setMobileMenu(false));
+    mobileClose?.addEventListener('click', () => setMobileMenu(false));
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileOverlay.classList.contains('open')) setMobileMenu(false);
+    });
+  }
 })();
