@@ -351,6 +351,10 @@
   .proj-grid, .proj-grid--three { grid-template-columns: 1fr; }
   .proj-card, .proj-card--featured { grid-column: span 1; }
 }
+@media (max-width: 768px) {
+  .proj-card-img { height: 200px; }
+  .proj-card-body { padding: 20px 18px 22px; }
+}
 @media (max-width: 640px) {
   .proj-hero, .proj-section { padding: 48px 20px; }
   .proj-grid { grid-template-columns: 1fr; }

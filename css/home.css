@@ -246,14 +246,14 @@
   .cap-visual img { min-height: 260px; }
 }
 
+@media (max-width: 768px) {
+  .trusted-marquee { padding: 16px 0; }
+  .trusted-marquee-item { font-size: .82rem; padding: 0 20px; }
+}
+
 @media (max-width: 640px) {
-  .home-hero { padding: 96px 20px 56px; }
-  .capabilities { padding: 56px 20px; }
-  .hero-single-frame img { height: 240px; }
-  .home-hero .hero-stats { flex-wrap: wrap; gap: 20px 28px; }
-  .home-hero .hero-stat-val { font-size: 1.5rem; }
-  .home-page .cta-band-light { padding: 56px 20px; }
-  .cap-card:hover { transform: translateY(-4px); }
+  .hero-single-frame img { height: 220px; }
+  .home-page .cta-band-light { padding: 48px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

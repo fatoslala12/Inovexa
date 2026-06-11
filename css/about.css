@@ -337,13 +337,20 @@
   .about-expertise-inner { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (max-width: 768px) {
+  .about-leadership-header .section-sub { font-size: .9rem; }
+  .ceo-tagline { font-size: .82rem; }
+  .about-timeline { padding-left: 0; }
+}
 @media (max-width: 640px) {
   .about-hero, .about-story, .about-values, .about-leadership { padding: 56px 20px; }
-  .about-hero-visual { min-height: 280px; }
-  .hero-visual-main { width: 160px; height: 200px; right: 10px; }
-  .hero-visual-secondary { width: 140px; height: 180px; left: 10px; }
-  .about-hero-stats { gap: 24px; }
+  .about-hero-visual { min-height: 260px; }
+  .hero-visual-main { width: 150px; height: 190px; right: 8px; }
+  .hero-visual-secondary { width: 130px; height: 170px; left: 8px; }
+  .about-hero-stats { gap: 20px; }
   .about-values-grid { grid-template-columns: 1fr; }
   .about-expertise-inner { grid-template-columns: 1fr; }
   .ceo-content { padding: 0 20px 28px !important; }
+  .ceo-photo-wrap { min-height: 280px; }
+  .ceo-photo-wrap img { min-height: 280px; }
 }

@@ -387,11 +387,15 @@
   .svc-procesi .process-steps::before { display: none; }
   .svc-why-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 768px) {
+  .svc-hero-top { gap: 24px; }
+  .svc-card { min-height: auto !important; }
+  .svc-card--xl .svc-card-body { padding: 24px 22px; }
+}
 @media (max-width: 640px) {
   .svc-hero, .svc-section, .svc-industries, .svc-why, .svc-procesi { padding: 56px 20px; }
   .svc-bento { grid-template-columns: 1fr; }
   .svc-card--xl, .svc-card--lg, .svc-card--md, .svc-card--sm { grid-column: span 1; min-height: auto; }
-  .svc-hero-stats { grid-template-columns: 1fr 1fr; }
   .svc-procesi .process-steps { grid-template-columns: repeat(2, 1fr); padding: 28px 20px; }
   .svc-ind-grid { grid-template-columns: 1fr 1fr; }
 }
