@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Blog Inovexa – artikuj mbi teknologji, AI, web, cloud dhe biznes digjital."/>
+<title>Blog – Inovexa Shpk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="../css/layout.css"/>
+<link rel="stylesheet" href="../css/blog.css"/>
+</head>
+<body data-base="../" data-page="blog">
+
+<div id="site-header"></div>
+
+<header class="blog-hero">
+  <div class="blog-hero-inner reveal visible">
+    <div class="breadcrumb"><a href="../index.html">Kryefaqja</a><span>/</span><span>Blog</span></div>
+    <h1>Njohuri Digjitale</h1>
+    <p class="blog-hero-lead">Artikuj, këshilla dhe analiza mbi teknologjinë, inovacionin dhe biznesin digjital nga ekipi ynë.</p>
+  </div>
+</header>
+
+<section class="blog-section">
+  <div class="blog-inner">
+
+    <div class="blog-filters reveal">
+      <button class="blog-filter active" data-filter="all">Të Gjitha</button>
+      <button class="blog-filter" data-filter="ai">AI</button>
+      <button class="blog-filter" data-filter="web">Web</button>
+      <button class="blog-filter" data-filter="auto">Automatizim</button>
+      <button class="blog-filter" data-filter="cloud">Cloud</button>
+      <button class="blog-filter" data-filter="security">Siguri</button>
+      <button class="blog-filter" data-filter="mobile">Mobile</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid"></div>
+
+    <nav class="blog-pagination" id="blogPagination" aria-label="Faqëzimi i blogut"></nav>
+
+  </div>
+</section>
+
+<div class="blog-modal-overlay" id="blogModal" role="dialog" aria-modal="true">
+  <div class="blog-modal" id="blogModalContent"></div>
+</div>
+
+<div id="site-footer"></div>
+
+<script src="../js/layout.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/blog.js"></script>
+</body>
+</html>
