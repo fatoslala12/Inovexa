@@ -343,14 +343,13 @@
   .about-timeline { padding-left: 0; }
 }
 @media (max-width: 640px) {
-  .about-hero, .about-story, .about-values, .about-leadership { padding: 56px 20px; }
-  .about-hero-visual { min-height: 260px; }
-  .hero-visual-main { width: 150px; height: 190px; right: 8px; }
-  .hero-visual-secondary { width: 130px; height: 170px; left: 8px; }
-  .about-hero-stats { gap: 20px; }
+  .about-story, .about-values, .about-leadership { padding: 48px 20px; }
+  .about-hero-visual { min-height: 200px; }
+  .hero-visual-main { width: 140px; height: 175px; right: 12px; top: 0; }
+  .hero-visual-secondary { width: 120px; height: 155px; left: 12px; bottom: 0; }
   .about-values-grid { grid-template-columns: 1fr; }
   .about-expertise-inner { grid-template-columns: 1fr; }
   .ceo-content { padding: 0 20px 28px !important; }
-  .ceo-photo-wrap { min-height: 280px; }
-  .ceo-photo-wrap img { min-height: 280px; }
+  .ceo-photo-wrap { min-height: 260px; }
+  .ceo-photo-wrap img { min-height: 260px; }
 }

@@ -331,28 +331,59 @@ body { padding-top: 92px; }
   .site-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .site-footer-brand { grid-column: span 2; }
   body.menu-open .site-nav { z-index: 1101; }
+
+  /* Mobile header — menu majtas, logo qendër */
+  .site-nav {
+    padding: 0;
+    background: #fff;
+  }
+  .site-nav-inner {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    gap: 0;
+    max-width: none;
+    min-height: 56px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+  }
+  .site-nav.scrolled .site-nav-inner { box-shadow: none; }
+  .site-nav-logo {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    padding: 0;
+  }
+  .site-nav-logo img,
+  .site-nav-logo-img { height: 38px; }
+  .site-nav-actions {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    gap: 0;
+  }
+  .site-nav-wa { display: none; }
+  .site-nav-toggle {
+    width: 42px; height: 42px;
+    border-radius: 11px;
+    background: var(--surface-2);
+  }
+
+  body { padding-top: 56px; }
+  .home-page .home-hero { margin-top: -56px; }
+  .page-hero { padding-top: 16px !important; }
 }
 
 @media (max-width: 640px) {
-  body { padding-top: 72px; }
-  .home-page .home-hero { margin-top: -72px; padding-top: 88px; }
-  .site-nav { padding: 6px 10px; }
-  .site-nav-inner {
-    padding: 4px 8px 4px 10px; border-radius: 14px;
-    min-height: 52px; gap: 8px;
-  }
+  .site-nav-inner { padding: 8px 14px; min-height: 52px; }
   .site-nav-logo img,
-  .site-nav-logo-img { height: 44px; }
-  .site-nav-actions { gap: 6px; }
-  .site-nav-wa { width: 40px; height: 40px; }
-  .site-nav-wa svg { width: 20px; height: 20px; }
+  .site-nav-logo-img { height: 36px; }
   .site-footer { padding: 32px 20px 0; }
   .site-footer-grid { grid-template-columns: 1fr; }
   .site-footer-brand { grid-column: span 1; }
   .whatsapp-float { width: 50px; height: 50px; bottom: 18px; right: 16px; }
   #backTop { bottom: 80px; right: 16px; }
-}
-
-@media (max-width: 380px) {
-  .site-nav-wa { display: none; }
 }

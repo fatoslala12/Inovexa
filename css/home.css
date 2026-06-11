@@ -251,8 +251,15 @@
   .trusted-marquee-item { font-size: .82rem; padding: 0 20px; }
 }
 
+@media (max-width: 768px) {
+  .home-hero-inner { gap: 28px; }
+  .hero-single { order: -1; }
+  .hero-single-frame img { height: 200px; }
+  .hero-single-frame { animation: none; }
+}
+
 @media (max-width: 640px) {
-  .hero-single-frame img { height: 220px; }
+  .hero-single-frame img { height: 190px; }
   .home-page .cta-band-light { padding: 48px 20px; }
 }
 
