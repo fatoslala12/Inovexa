@@ -1,0 +1,82 @@
+/* ── KARRIERA PAGE ── */
+.careers-section { background: var(--surface); }
+.careers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.careers-intro p {
+  font-size: 1rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+.careers-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.careers-perk {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: .9rem;
+  color: var(--text-mid);
+}
+.careers-perk::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+.career-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.career-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.career-card:hover {
+  border-color: var(--brand);
+  box-shadow: var(--shadow-sm);
+}
+.career-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .95rem;
+  margin-bottom: 4px;
+  color: var(--text-dark);
+}
+.career-meta {
+  font-size: .78rem;
+  color: var(--text-soft);
+}
+.career-apply {
+  background: var(--brand-light);
+  color: var(--brand);
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .2s, color .2s;
+}
+.career-apply:hover {
+  background: var(--brand);
+  color: #fff;
+}
