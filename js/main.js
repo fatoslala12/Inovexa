@@ -6,16 +6,6 @@ window.addEventListener('scroll', () => {
   if (backTop) backTop.classList.toggle('show', window.scrollY > 400);
 });
 
-// Hamburger
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
-}
-
 // Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
