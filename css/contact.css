@@ -249,6 +249,8 @@
 }
 .contact-submit:disabled { opacity: .7; cursor: not-allowed; transform: none; }
 .contact-submit.success { background: #22c55e !important; }
+.contact-submit.error { background: #ef4444 !important; }
+.contact-honeypot { display: none !important; }
 
 /* Map */
 .contact-map-section {
