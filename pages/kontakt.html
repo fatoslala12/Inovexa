@@ -107,6 +107,7 @@
       </div>
 
       <form class="contact-form" id="contactForm" novalidate>
+        <input type="checkbox" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true"/>
         <div class="contact-form-row">
           <div class="contact-field">
             <label for="name">Emër / Mbiemër <span class="req">*</span></label>
@@ -244,8 +245,10 @@
 
 <div id="site-footer"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="../js/layout.js"></script>
 <script src="../js/main.js"></script>
+<script src="../js/email-config.js"></script>
 <script src="../js/kontakt.js"></script>
 </body>
 </html>
