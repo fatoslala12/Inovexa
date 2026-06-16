@@ -8,6 +8,25 @@
   const base = document.body.dataset.base || '';
   const page = document.body.dataset.page || '';
 
+  /* Favicon & browser chrome (tab icon + mobile bar color) */
+  if (!document.querySelector('link[rel="icon"]')) {
+    const icon = document.createElement('link');
+    icon.rel = 'icon';
+    icon.type = 'image/png';
+    icon.href = base + 'assets/logo_inovexa.png';
+    document.head.appendChild(icon);
+    const apple = document.createElement('link');
+    apple.rel = 'apple-touch-icon';
+    apple.href = base + 'assets/logo_inovexa.png';
+    document.head.appendChild(apple);
+    if (!document.querySelector('meta[name="theme-color"]')) {
+      const theme = document.createElement('meta');
+      theme.name = 'theme-color';
+      theme.content = '#3c968f';
+      document.head.appendChild(theme);
+    }
+  }
+
   const navItems = [
     { id: 'kryefaqja', label: 'Kryefaqja', href: base + 'index.html' },
     { id: 'rreth-nesh', label: 'Rreth Nesh', href: base + 'pages/rreth-nesh.html' },
