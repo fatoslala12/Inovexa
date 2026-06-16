@@ -1,7 +1,8 @@
 (function () {
-  const config = window.INOVEXA_CONTACT || {};
-  const ACCESS_KEY = (config.web3formsAccessKey || '').trim();
-  const KEY_PLACEHOLDER = !ACCESS_KEY || ACCESS_KEY === 'PASTE_ACCESS_KEY_HERE';
+  const ACCESS_KEY = (
+    window.INOVEXA_CONTACT?.web3formsAccessKey ||
+    '481d6e2a-241a-4041-a1d2-b7c93638a845'
+  ).trim();
 
   const form = document.getElementById('contactForm');
   const pills = document.querySelectorAll('.contact-pill');
@@ -29,15 +30,6 @@
 
       if (!form.checkValidity()) {
         form.reportValidity();
-        return;
-      }
-
-      if (KEY_PLACEHOLDER) {
-        showBtnState(btn, 'error', '❌ Formulari nuk është aktiv. Kontaktoni info@inovexa.al');
-        setTimeout(() => {
-          btn.classList.remove('error');
-          btn.innerHTML = btn.dataset.originalHtml || btn.innerHTML;
-        }, 4000);
         return;
       }
 
