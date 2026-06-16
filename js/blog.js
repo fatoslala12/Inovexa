@@ -1,5 +1,21 @@
 const BLOG_POSTS = [
   {
+    id: 13, cat: 'web', catLabel: 'Web',
+    title: 'Zhvillim website në Tiranë: çfarë duhet të kërkoni nga agjencia juaj IT',
+    excerpt: 'Çmimi, afati, SEO dhe mirëmbajtja — udhëzues praktik për bizneset që kërkojnë website profesional në Shqipëri.',
+    body: 'Kur kërkoni “zhvillim website Tiranë” ose “kompani web design Shqipëri”, ofertat mund të ndryshojnë shumë. Një website profesional nuk është vetëm dizajn: përfshin strategji përmbajtjeje, shpejtësi ngarkimi, optimizim SEO lokale, version mobil dhe plan mirëmbajtjeje. Pyetjet e duhura për agjencinë: a përdoret CMS i lehtë për ju, a merrni pronësinë e kodit, sa kushton mirëmbajtja vjetore dhe a përfshihet SSL + backup? Në Inovexa, çdo projekt web fillon me analizë të objektivave të biznesit — jo me template të përgjithshëm. Kjo është arsyeja pse klientët tanë shohin rritje të trafikut organik dhe më shumë kërkesa kontakti brenda muajve të parë.',
+    image: '../assets/images/blog/web.jpg',
+    readTime: '7 min', date: 'Qershor 2026'
+  },
+  {
+    id: 14, cat: 'ai', catLabel: 'IT & Biznes',
+    title: 'Transformimi digjital për PME në Shqipëri: nga ideja te rezultati në 90 ditë',
+    excerpt: 'ERP, automatizim, AI dhe cloud — si të prioritizoni investimet teknologjike kur buxheti është i kufizuar.',
+    body: 'Transformimi digjital nuk do të thotë të blini çdo softuer në treg. Për bizneset shqiptare, hapat me ROI më të shpejtë janë: (1) website + Google Business i optimizuar, (2) automatizim i proceseve repetitive (fatura, raporte, lead management), (3) integrim WhatsApp/CRM, (4) dashboard për vendimmarrje. AI dhe chatbot-ët vijnë pas — kur keni të dhëna të strukturuara. Në 90 ditë, një PME mund të kalojë nga Excel i shpërndarë në sistem të integruar me raporte real-time. Inovexa kombinon përvojë nga sektori publik dhe privat për të ndërtuar zgjidhje që respektojnë buxhetin dhe rregulloret lokale. Fokusi: më pak punë manuale, më shumë rritje të matshme.',
+    image: '../assets/images/blog/digital.jpg',
+    readTime: '8 min', date: 'Maj 2026'
+  },
+  {
     id: 1, cat: 'ai', catLabel: 'AI',
     title: 'Si mund ta ndihmojë Inteligjenca Artificiale biznesin tuaj në 2025',
     excerpt: 'AI nuk është më e ardhmja — është e tashmja. Zbuloni mënyra konkrete si bizneset shqiptare po përfitojnë nga automatizimi inteligjent.',

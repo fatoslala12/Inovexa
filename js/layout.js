@@ -4,6 +4,8 @@
   const PHONE_DISPLAY = '+355 68 498 0913';
   const WHATSAPP_URL = 'https://wa.me/355684980913?text=' + encodeURIComponent('Përshëndetje! Dëshiroj të marr më shumë informacion për shërbimet tuaja.');
   const EMAIL = 'info@inovexa.al';
+  const LINKEDIN_URL = 'https://al.linkedin.com/in/inovexashpk';
+  const INSTAGRAM_URL = 'https://www.instagram.com/Inovexa_shpk/';
 
   const base = document.body.dataset.base || '';
   const page = document.body.dataset.page || '';
@@ -133,9 +135,8 @@
       <p>© ${new Date().getFullYear()} Inovexa Shpk · Të gjitha të drejtat e rezervuara</p>
       <div class="site-footer-socials">
         <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" aria-label="WhatsApp" class="sf-social sf-wa">${waIcon}</a>
-        <a href="#" aria-label="LinkedIn" class="sf-social">in</a>
-        <a href="#" aria-label="Instagram" class="sf-social">ig</a>
-        <a href="#" aria-label="Facebook" class="sf-social">fb</a>
+        <a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn" class="sf-social">in</a>
+        <a href="${INSTAGRAM_URL}" target="_blank" rel="noopener" aria-label="Instagram" class="sf-social">ig</a>
       </div>
     </div>
   </div>
