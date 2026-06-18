@@ -4,15 +4,38 @@ window.addEventListener('scroll', () => {
   const backTop = document.getElementById('backTop');
   if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
   if (backTop) backTop.classList.toggle('show', window.scrollY > 400);
-});
+}, { passive: true });
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
+// Scroll reveal with stagger inside grids
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+['.services-grid', '.capabilities-grid', '.why-compact', '.testimonials-grid', '.blog-grid', '.proj-grid', '.career-list'].forEach(sel => {
+  document.querySelectorAll(sel).forEach(grid => {
+    grid.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i, 8) * 65}ms`;
+    });
+  });
+});
+
+// Smooth anchor scroll with nav offset
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const nav = document.querySelector('.site-nav');
+    const offset = (nav ? nav.offsetHeight : 72) + 16;
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+  });
+});
 
 // Contact form
 function handleSubmit() {
@@ -30,21 +53,25 @@ const counters = document.querySelectorAll('[data-count]');
 if (counters.length) {
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        let current = 0;
-        const step = target / 60;
-        const suffix = el.dataset.suffix || (target >= 98 ? '%' : '+');
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(timer); }
-          el.textContent = Math.floor(current) + suffix;
-        }, 25);
-        counterObserver.unobserve(el);
-      }
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || (target >= 98 ? '%' : '+');
+      let current = 0;
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.floor(target * eased);
+        el.textContent = current + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.4 });
   counters.forEach(c => counterObserver.observe(c));
 }
 
