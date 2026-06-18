@@ -1,7 +1,7 @@
 /* ── RRETH NESH PAGE ── */
 .about-hero {
   padding: 48px 32px 72px;
-  background: linear-gradient(160deg, #f8fdfc 0%, #eef8f7 50%, #fff 100%);
+  background: linear-gradient(160deg, var(--bg-page) 0%, var(--surface-3) 50%, var(--surface) 100%);
   border-bottom: 1px solid var(--border);
   position: relative; overflow: hidden;
 }
@@ -35,8 +35,20 @@
   max-width: 640px; margin-bottom: 32px;
 }
 .about-hero-stats {
-  display: flex; gap: 40px; flex-wrap: wrap;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  background: var(--bg-page);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-width: 520px;
 }
+.about-hero-stat {
+  padding: 18px 20px;
+  border-right: 1px solid var(--border);
+  transition: background .25s;
+}
+.about-hero-stat:last-child { border-right: none; }
+.about-hero-stat:hover { background: rgba(60, 150, 143, .06); }
 .about-hero-stat strong {
   display: block; font-family: var(--font-display);
   font-size: 1.8rem; font-weight: 800; color: var(--brand);
@@ -52,7 +64,7 @@
 .hero-visual-card {
   position: absolute; border-radius: var(--radius-xl);
   overflow: hidden; box-shadow: var(--shadow-lg);
-  border: 4px solid #fff; background: var(--surface-3);
+  border: 4px solid var(--surface); background: var(--surface-3);
   transition: transform .4s ease;
 }
 .hero-visual-card img {
@@ -92,7 +104,7 @@
 /* Story */
 .about-story {
   padding: 80px 32px;
-  background: linear-gradient(180deg, #fff 0%, var(--surface-2) 100%);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-page) 100%);
 }
 .about-story-grid {
   max-width: 1280px; margin: 0 auto;
@@ -107,7 +119,7 @@
 }
 .story-tl-item {
   display: flex; gap: 16px; align-items: flex-start;
-  background: #fff; border: 1px solid var(--border);
+  background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-md); padding: 16px 18px;
   transition: border-color .2s, box-shadow .2s;
 }
@@ -126,7 +138,7 @@
 }
 .story-pill {
   font-size: .78rem; font-weight: 600; color: var(--text-mid);
-  background: #fff; border: 1px solid var(--border);
+  background: var(--surface); border: 1px solid var(--border);
   border-radius: 999px; padding: 7px 14px;
   transition: border-color .2s, color .2s;
 }
@@ -146,7 +158,7 @@
   font-size: .78rem; opacity: .7; font-style: normal;
 }
 .about-mv-card {
-  background: var(--surface-2); border: 1px solid var(--border);
+  background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius-lg); padding: 28px;
   transition: box-shadow .25s, border-color .25s;
 }
@@ -164,7 +176,7 @@
 /* Values */
 .about-values {
   padding: 80px 32px;
-  background: linear-gradient(180deg, var(--surface-2) 0%, #fff 100%);
+  background: linear-gradient(180deg, var(--bg-page) 0%, var(--surface) 100%);
 }
 .about-values-grid {
   max-width: 1280px; margin: 0 auto;
@@ -174,7 +186,7 @@
 /* Leadership */
 .about-leadership {
   padding: 72px 32px 80px;
-  background: linear-gradient(180deg, #fff 0%, var(--surface-2) 100%);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--bg-page) 100%);
   border-bottom: 1px solid var(--border);
 }
 .about-leadership .ceo-profile { opacity: 1; transform: none; }
@@ -209,9 +221,9 @@
 }
 .ceo-photo-badge {
   position: absolute; bottom: 20px; left: 20px; right: 20px;
-  background: rgba(255,255,255,.92); backdrop-filter: blur(10px);
+  background: rgba(253, 251, 247, .95); backdrop-filter: blur(10px);
   border-radius: var(--radius-md); padding: 14px 18px;
-  border: 1px solid rgba(255,255,255,.8);
+  border: 1px solid var(--border);
 }
 .ceo-photo-badge .role {
   font-size: .72rem; font-weight: 700; color: var(--brand);
@@ -304,7 +316,7 @@
 
 /* CTA light (about page) */
 .cta-band-light {
-  background: var(--surface-2) !important;
+  background: var(--bg-page) !important;
   border-top: 1px solid var(--border);
   padding: 72px 32px;
 }

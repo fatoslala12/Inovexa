@@ -2,23 +2,24 @@
   :root {
     --brand:       #3c968f;
     --brand-dark:  #2d7a73;
-    --brand-light: #e8f5f4;
-    --brand-xlight:#f2fafa;
+    --brand-light: #e2efed;
+    --brand-xlight:#f0ebe3;
     --accent:      #f0a500;
-    --text-dark:   #0d1f1e;
-    --text-mid:    #3a5250;
-    --text-soft:   #6b8c8a;
-    --surface:     #ffffff;
-    --surface-2:   #f7fafa;
-    --surface-3:   #eef6f5;
-    --border:      #d4eae8;
+    --text-dark:   #1a2420;
+    --text-mid:    #3d4a44;
+    --text-soft:   #6b7a72;
+    --bg-page:     #f3eee4;
+    --surface:     #fdfbf7;
+    --surface-2:   #f3eee4;
+    --surface-3:   #ede8de;
+    --border:      #d9cfc0;
     --radius-sm:   8px;
     --radius-md:   14px;
     --radius-lg:   24px;
     --radius-xl:   36px;
-    --shadow-sm:   0 1px 4px rgba(60,150,143,.08);
-    --shadow-md:   0 4px 24px rgba(60,150,143,.12);
-    --shadow-lg:   0 12px 48px rgba(60,150,143,.16);
+    --shadow-sm:   0 1px 4px rgba(72, 58, 42, .07);
+    --shadow-md:   0 4px 24px rgba(72, 58, 42, .1);
+    --shadow-lg:   0 12px 48px rgba(72, 58, 42, .12);
     --font-display:'Sora', sans-serif;
     --font-body:   'Inter', sans-serif;
   }
@@ -26,16 +27,27 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--font-body);
-    background: var(--surface);
+    background: var(--bg-page);
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Inner pages — consistent cream canvas */
+  .contact-page,
+  .blog-page,
+  .proj-page,
+  .careers-page,
+  .about-page,
+  .svc-page {
+    background: var(--bg-page);
   }
 
   /* â”€â”€ NAVBAR â”€â”€ */
   .navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    background: rgba(255,255,255,0.92);
+    background: rgba(253, 251, 247, 0.92);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
     transition: box-shadow .3s;
@@ -425,7 +437,7 @@
   }
 
   /* â”€â”€ SERVICES â”€â”€ */
-  .services { background: var(--surface-2); }
+  .services { background: var(--bg-page); }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -473,7 +485,7 @@
   .service-card:hover .service-link svg { transform: translateX(4px); }
 
   /* â”€â”€ WHY INOVEXA â”€â”€ */
-  .why { background: var(--surface); }
+  .why { background: var(--bg-page); }
   .why-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
     align-items: center;
@@ -555,7 +567,7 @@
   .process-step-desc { font-size: .73rem; color: var(--text-soft); line-height: 1.4; }
 
   /* â”€â”€ TESTIMONIALS â”€â”€ */
-  .testimonials { background: var(--surface); }
+  .testimonials { background: var(--bg-page); }
   .testimonials-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
   }
@@ -609,7 +621,7 @@
   .cta-actions { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn-white {
     padding: 14px 30px;
-    background: #fff; color: var(--brand);
+    background: var(--surface); color: var(--brand);
     border-radius: 40px; font-weight: 700; font-size: .95rem;
     text-decoration: none;
     transition: transform .15s, box-shadow .2s;
@@ -791,8 +803,8 @@
 
   /* Inner page hero */
   .page-hero {
-    padding: 120px 32px 64px;
-    background: linear-gradient(150deg, var(--surface) 0%, var(--brand-xlight) 60%, var(--surface-3) 100%);
+    padding: 48px 32px 56px;
+    background: linear-gradient(160deg, var(--bg-page) 0%, var(--surface-3) 50%, var(--surface) 100%);
     border-bottom: 1px solid var(--border);
   }
   .page-hero-inner { max-width: 1280px; margin: 0 auto; }

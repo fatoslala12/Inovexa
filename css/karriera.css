@@ -1,5 +1,10 @@
 /* ── KARRIERA PAGE ── */
-.careers-section { background: var(--surface); }
+.careers-page .page-hero {
+  padding: 40px 32px 48px;
+  background: linear-gradient(160deg, var(--bg-page) 0%, var(--surface-3) 50%, var(--surface) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.careers-section { background: var(--bg-page); padding: 72px 32px; }
 .careers-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -39,7 +44,7 @@
   gap: 14px;
 }
 .career-card {
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 20px 22px;

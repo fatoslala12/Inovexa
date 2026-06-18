@@ -1,6 +1,6 @@
 /* ── PROJEKTET — PREMIUM PORTFOLIO ── */
 
-.proj-page { background: var(--surface); }
+.proj-page { background: var(--bg-page); }
 
 /* Hero */
 .proj-hero {
@@ -57,7 +57,7 @@
 .proj-hero-stat span { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: 4px; display: block; }
 
 /* Filters */
-.proj-section { padding: 56px 32px 80px; }
+.proj-section { padding: 56px 32px 80px; background: var(--bg-page); }
 .proj-section-inner { max-width: 1280px; margin: 0 auto; }
 .proj-filters {
   display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
@@ -65,7 +65,7 @@
 .proj-filter {
   padding: 9px 20px; border-radius: 999px;
   font-size: .82rem; font-weight: 600; cursor: pointer;
-  border: 1px solid var(--border); background: #fff; color: var(--text-mid);
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-mid);
   transition: all .25s ease; font-family: var(--font-body);
 }
 .proj-filter:hover { border-color: var(--brand); color: var(--brand); }
@@ -84,7 +84,7 @@
   grid-column: span 2;
   position: relative; border-radius: var(--radius-xl);
   overflow: hidden; cursor: pointer;
-  background: #fff; border: 1px solid var(--border);
+  background: var(--surface); border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
   transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease, border-color .3s;
   text-align: left; font-family: inherit; padding: 0;
@@ -92,7 +92,7 @@
 }
 .proj-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 64px rgba(60,150,143,.18);
+  box-shadow: 0 24px 64px rgba(72, 58, 42, .14);
   border-color: rgba(60,150,143,.35);
 }
 .proj-card.hidden { display: none; }
@@ -131,8 +131,9 @@
   position: absolute; top: 16px; left: 16px; z-index: 2;
   font-size: .68rem; font-weight: 700; text-transform: uppercase;
   letter-spacing: .6px; padding: 5px 12px; border-radius: 999px;
-  background: rgba(255,255,255,.92); color: var(--text-dark);
+  background: rgba(253, 251, 247, .95); color: var(--text-dark);
   backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
 }
 .proj-card-badge--real {
   background: var(--brand); color: #fff;
@@ -227,7 +228,7 @@
 }
 .proj-modal-overlay.open { opacity: 1; pointer-events: all; }
 .proj-modal {
-  background: #fff; border-radius: var(--radius-xl);
+  background: var(--surface); border-radius: var(--radius-xl);
   max-width: 720px; width: 100%; max-height: 90vh; overflow-y: auto;
   box-shadow: 0 32px 80px rgba(0,0,0,.25);
   transform: translateY(24px) scale(.97);
