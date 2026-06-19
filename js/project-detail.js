@@ -39,7 +39,7 @@ function renderProjectDetail() {
 
   const urlLabel = p.url
     ? p.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '')
-    : p.shortTitle.toLowerCase().replace(/\s+/g, '') + '.al';
+    : (p.urlLabel || p.shortTitle.toLowerCase().replace(/\s+/g, '') + '.al');
 
   function showcaseFrame(src, i, loading) {
     return (
@@ -59,14 +59,16 @@ function renderProjectDetail() {
     );
   }
 
-  const previewSection = p.images && p.images.length
+  const previewList = (p.previewImages || p.images || []).slice(0, 2);
+
+  const previewSection = previewList.length
     ? '<section class="proj-showcase proj-showcase--preview" aria-label="Pamje të sistemit">' +
         '<div class="proj-showcase-inner">' +
           '<div class="proj-showcase-head">' +
             '<span class="proj-showcase-eyebrow">Pamje të Sistemit</span>' +
           '</div>' +
           '<div class="proj-showcase-grid is-preview">' +
-            p.images.slice(0, 2).map(function (src, i) {
+            previewList.map(function (src, i) {
               return showcaseFrame(src, i, i === 0 ? 'eager' : 'lazy');
             }).join('') +
           '</div>' +
@@ -241,6 +243,26 @@ function renderProjectDetail() {
     '</div>'
   ).join('');
 
+  const sidebarHtml =
+    '<aside class="proj-detail-sidebar">' +
+      '<div class="proj-detail-side-card">' +
+        '<h3>Teknologjitë</h3>' +
+        '<div class="proj-detail-tags">' +
+          p.tags.map(t => '<span class="proj-tag">' + t + '</span>').join('') +
+        '</div>' +
+      '</div>' +
+      stackSidebar +
+      '<div class="proj-detail-side-card proj-detail-cta-card">' +
+        '<h3>Interesuar?</h3>' +
+        '<p>Dëshironi një projekt të ngjashëm? Konsultimi i parë është falas.</p>' +
+        '<div class="proj-detail-actions">' +
+          liveBtn +
+          '<a href="' + base + 'pages/kontakt.html" class="btn-secondary">Kërko Ofertë →</a>' +
+          '<a href="' + base + 'pages/projektet.html" class="proj-detail-back">← Të gjitha projektet</a>' +
+        '</div>' +
+      '</div>' +
+    '</aside>';
+
   root.innerHTML =
     '<header class="proj-detail-hero">' +
       '<div class="proj-detail-hero-inner">' +
@@ -259,46 +281,26 @@ function renderProjectDetail() {
         '<div class="proj-detail-stats">' + statsHtml + '</div>' +
       '</div>' +
     '</header>' +
-    previewSection +
     '<div class="proj-detail-body">' +
-      '<div class="proj-detail-inner">' +
-        '<div class="proj-detail-grid">' +
-          '<div class="proj-detail-main">' +
-            '<div class="proj-detail-block">' +
-              '<h2 class="proj-detail-block-title">Rreth Projektit</h2>' +
-              '<p class="proj-detail-desc proj-detail-desc--lead">' + p.desc + '</p>' +
-              introHtml +
-            '</div>' +
-            problemHtml +
-            (groupsHtml
-              ? '<div class="proj-detail-block"><h2 class="proj-detail-block-title">' + groupsTitle + '</h2><div class="' + groupsClass + '">' + groupsHtml + '</div></div>'
-              : featuresHtml) +
-            securityHtml +
-            rolesHtml +
-            servicesHtml +
-            advancedHtml +
-            bonusHtml +
-            resultHtml +
+      '<div class="proj-detail-inner proj-detail-inner--layout">' +
+        previewSection +
+        sidebarHtml +
+        '<div class="proj-detail-main">' +
+          '<div class="proj-detail-block">' +
+            '<h2 class="proj-detail-block-title">Rreth Projektit</h2>' +
+            '<p class="proj-detail-desc proj-detail-desc--lead">' + p.desc + '</p>' +
+            introHtml +
           '</div>' +
-
-          '<aside class="proj-detail-sidebar">' +
-            '<div class="proj-detail-side-card">' +
-              '<h3>Teknologjitë</h3>' +
-              '<div class="proj-detail-tags">' +
-                p.tags.map(t => '<span class="proj-tag">' + t + '</span>').join('') +
-              '</div>' +
-            '</div>' +
-            stackSidebar +
-            '<div class="proj-detail-side-card proj-detail-cta-card">' +
-              '<h3>Interesuar?</h3>' +
-              '<p>Dëshironi një projekt të ngjashëm? Konsultimi i parë është falas.</p>' +
-              '<div class="proj-detail-actions">' +
-                liveBtn +
-                '<a href="' + base + 'pages/kontakt.html" class="btn-secondary">Kërko Ofertë →</a>' +
-                '<a href="' + base + 'pages/projektet.html" class="proj-detail-back">← Të gjitha projektet</a>' +
-              '</div>' +
-            '</div>' +
-          '</aside>' +
+          problemHtml +
+          (groupsHtml
+            ? '<div class="proj-detail-block"><h2 class="proj-detail-block-title">' + groupsTitle + '</h2><div class="' + groupsClass + '">' + groupsHtml + '</div></div>'
+            : featuresHtml) +
+          securityHtml +
+          rolesHtml +
+          servicesHtml +
+          advancedHtml +
+          bonusHtml +
+          resultHtml +
         '</div>' +
         fullGallerySection +
       '</div>' +

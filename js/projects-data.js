@@ -4,7 +4,7 @@
     biblioteka: {
       theme: 'theme-library',
       cat: 'software',
-      year: '2025',
+      year: '2026',
       cover: 'assets/images/projects/biblioteka-kamez-hero.png',
       shortTitle: 'Smart Library',
       shortDesc: 'Platformë inteligjente për menaxhimin e bibliotekave — katalog, huazime, rezervime, anëtarë dhe statistika live.',
@@ -118,7 +118,7 @@
     capital: {
       theme: 'theme-capital',
       cat: 'software',
-      year: '2025',
+      year: '2026',
       cover: 'assets/images/projects/capitalrise-kontrata.png',
       shortTitle: 'CapitalRise',
       shortDesc: 'ERP cloud për ndërtim — kontrata, punonjës, orë pune, pagesa, detyra dhe raporte financiare në një platformë.',
@@ -331,10 +331,153 @@
         'assets/images/projects/nabgroup-home.png'
       ],
       tags: ['WordPress', 'HTML/CSS', 'SEO', 'Responsive']
+    },
+    shortit: {
+      theme: 'theme-shortit',
+      cat: 'software',
+      year: '2025',
+      cover: 'assets/images/projects/shortit-dashboard.png',
+      previewImages: [
+        'assets/images/projects/shortit-login.png',
+        'assets/images/projects/shortit-short.png'
+      ],
+      shortTitle: 'Sistemi i Shortit',
+      shortDesc: 'Caktim automatik i mësuesve, përgjegjësve të katit dhe mbikëqyrësve MAS gjatë provimeve shkollore — me motor optimizimi OR-Tools.',
+      liveLabel: 'Platformë Institucionale',
+      client: 'ZVA & Ministria e Arsimit · Shqipëri',
+      urlLabel: 'Platformë Mbikëqyrës Provimesh',
+      title: 'Sistemi i Shortit — Caktim Inteligjent i Personelit gjatë Provimeve',
+      type: 'Optimizim · Constraint Programming · FastAPI · Next.js',
+      desc: 'Kur mijëra mësues duhet të shpërndahen në dhjetëra shkolla për provime kombëtare, shorti me Excel bëhet i ngadaltë, i gabueshëm dhe i pabalancuar. Ky sistem e zëvendëson me një motor matematikor që gjen zgjidhjen optimale brenda rregullave strikte arsimore.',
+      intro: [
+        'Platformë web për ZVA-t dhe Ministrinë e Arsimit që automatizon shortin e personelit: mësues mbikëqyrës, përgjegjës kati dhe mbikëqyrës nga Arsimi (MAS). Të dhënat ngarkohen nga Excel, shorti gjenerohet për 1 ose 4 provime njëkohësisht, dhe rezultatet eksportohen në Excel, PDF ose bundle për çdo ZVA.',
+        'Në vend të orëve pune manuale, sistemi balancon ngarkesën, respekton kufizimet (jo te shkolla e vet, jo lënda e provimit, brenda ZVA-së) dhe llogarit automatikisht ~10% rezervë për çdo shkollë.'
+      ],
+      problem: {
+        title: 'Pse na duhej automatizimi?',
+        text: 'Gjatë provimeve kombëtare ose zonale, çdo shkollë ka nevojë për mbikëqyrës — mësues që mbikëqyrin klasa në shkolla të tjera. Për qindra shkolla dhe mijëra mësues, shorti manual krijon vonesa, gabime dhe mungesë transparence.',
+        points: [
+          'Hyrje në sistem dhe zgjedhje viti akademik',
+          'Ngarkim i të dhënave nga Excel (ZVA, shkolla, mësues, provime)',
+          'Kontroll i statusit të ngarkimit',
+          'Gjenerim shorti — 1 provim ose 4 njëkohësisht',
+          'Shqyrtim rezultatesh dhe përjashtime manuale',
+          'Eksport raportesh Excel, PDF dhe bundle ZVA'
+        ]
+      },
+      stats: [
+        { v: '8', l: 'Module operative' },
+        { v: '3', l: 'Lloje personeli' },
+        { v: 'OR-Tools', l: 'Motor optimizimi' }
+      ],
+      featureGroupsTitle: 'Çfarë bën çdo modul',
+      featureGroups: [
+        {
+          title: 'Të Dhënat',
+          icon: '📂',
+          items: [
+            'Ngarkim drag & drop nga Excel për ZVA, shkolla, mësues dhe provime',
+            'Skedar i vetëm “Institucioni” me 4 fletë (rekomandohet)',
+            'Validim automatik i fushave dhe historik ngarkimesh'
+          ]
+        },
+        {
+          title: 'Statusi i Ngarkimit',
+          icon: '📊',
+          items: [
+            'Pasqyrë live: sa ZVA, shkolla, mësues, provime janë ngarkuar',
+            'Historiku i skedarëve me datë, orë dhe numër regjistrash'
+          ]
+        },
+        {
+          title: 'Short',
+          icon: '🎲',
+          items: [
+            'Gjenerim për 1 provim ose 4 provime njëkohësisht',
+            'Caktim mësues → shkollë → klasë, përgjegjës kati → kat, MAS → shkollë',
+            'Rezerva ~10% dhe eksport automatik Excel pas gjenerimit'
+          ]
+        },
+        {
+          title: 'Mësues',
+          icon: '👨‍🏫',
+          items: [
+            'Lista e filtruar me shkollë aktuale, caktim, provim dhe status rezervë',
+            'Përjashtim manual për shortin e ardhshëm',
+            'Eksport Excel i pamjes aktuale'
+          ]
+        },
+        {
+          title: 'Përgjegjës Kati',
+          icon: '🏫',
+          items: [
+            '1 person për kat, jo te shkolla e vet, me balancim ngarkese',
+            'Filtra sipas qytetit, ZVA-së, shkollës dhe provimit'
+          ]
+        },
+        {
+          title: 'Mbikëqyrës MAS',
+          icon: '🏛',
+          items: [
+            '1 person MAS për shkollë/provim, me të njëjtat rregulla balancimi',
+            'Status caktuar ose rezervë, me eksport Excel'
+          ]
+        },
+        {
+          title: 'Raportet',
+          icon: '📋',
+          items: [
+            'Eksport Excel, PDF roster dhe bundle i plotë për ZVA',
+            'Grupim ZVA → shkollë, snapshot historik shortesh'
+          ]
+        },
+        {
+          title: 'Audit',
+          icon: '🔍',
+          items: [
+            'Modul gjurmimi i ndryshimeve — gati për integrim me Supabase',
+            'Regjistrim kush ndryshoi çfarë dhe kur'
+          ]
+        }
+      ],
+      advanced: [
+        'Google OR-Tools (CP-SAT) — zgjidhje optimale brenda 60 sek',
+        'Balancim i barabartë i ngarkesës midis mësuesve',
+        'Hard constraints: jo shkolla e vet, jo lënda e provimit',
+        'Ndalesa manuale mësues ↔ shkollë',
+        'Kapacitet shkollë = numri i klasave',
+        'Rezerva automatike ~10% për mësues, përgjegjës kati dhe MAS',
+        'Short kombëtar (city = Albania) ose brenda ZVA-së',
+        'Eksport bundle ZVA me të gjitha caktimet'
+      ],
+      stackDetailed: {
+        Backend: ['Python 3', 'FastAPI', 'Google OR-Tools', 'pandas', 'openpyxl', 'ReportLab'],
+        Frontend: ['TypeScript', 'Next.js 14', 'React 18', 'Tailwind CSS', 'Axios'],
+        Solver: ['CP-SAT Constraint Programming', 'Timeout 60s', 'Deri në 4 CPU cores'],
+        'Të dhëna': ['PostgreSQL', 'Import/Export Excel', 'Snapshot raportesh']
+      },
+      result: 'Sistemi transformon një proces kritik institucional — shortin e provimeve — nga orë pune manuale në minuta, me transparencë, balancim dhe raporte të gatshme për ZVA-t dhe MAS-in. Demonstron aftësi në modelim të problemeve komplekse, optimizim matematikor dhe ndërtim platformash operacionale për sektorin publik.',
+      stack: {
+        frontend: 'Next.js 14 · React 18 · Tailwind CSS · TypeScript',
+        backend: 'Python · FastAPI · OR-Tools',
+        database: 'PostgreSQL',
+        deploy: 'Lokal · API port 8000 · Frontend port 3000'
+      },
+      images: [
+        'assets/images/projects/shortit-login.png',
+        'assets/images/projects/shortit-dashboard.png',
+        'assets/images/projects/shortit-short.png',
+        'assets/images/projects/shortit-upload-status.png',
+        'assets/images/projects/shortit-mesues.png',
+        'assets/images/projects/shortit-pergjegjes-kati.png',
+        'assets/images/projects/shortit-mas.png',
+        'assets/images/projects/shortit-raporte.png'
+      ],
+      tags: ['FastAPI', 'Next.js', 'OR-Tools', 'PostgreSQL', 'Excel', 'Optimizim']
     }
   };
 
-  const ORDER = ['capital', 'biblioteka', 'nabgroup'];
+  const ORDER = ['capital', 'biblioteka', 'shortit', 'nabgroup'];
   const HOME_ORDER = ['capital', 'biblioteka'];
 
   function basePath() {
