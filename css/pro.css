@@ -301,6 +301,7 @@ select {
 }
 
 @media (max-width: 768px) {
+  body::before { display: none; }
   .trusted-marquee-wrap { flex-direction: column; }
   .trusted-marquee-label {
     justify-content: center;

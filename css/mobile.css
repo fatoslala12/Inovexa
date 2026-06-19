@@ -387,9 +387,16 @@
   /* Reduce hover motion on touch */
   .service-card:hover,
   .testi-card:hover,
-  .blog-card:hover {
+  .blog-card:hover,
+  .home-proj-card:hover {
     transform: none;
   }
+  .home-proj-grid { gap: 14px !important; }
+  .home-proj-visual { height: 185px !important; }
+  .proj-detail-fgroups { grid-template-columns: 1fr !important; }
+  .proj-detail-result { padding: 24px 22px; }
+  .proj-detail-roles { grid-template-columns: 1fr !important; }
+  .proj-detail-bonus-list { grid-template-columns: 1fr !important; }
 }
 
 @media (max-width: 480px) {
