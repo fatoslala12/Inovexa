@@ -768,13 +768,40 @@
   max-width: 640px; line-height: 1.55; margin-bottom: 0;
 }
 
-.proj-detail-body { padding: 36px 32px 80px; }
+.proj-detail-body { padding: 28px 32px 80px; }
 .proj-detail-inner { max-width: 1280px; margin: 0 auto; }
+
+.proj-detail-inner--layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas:
+    "preview sidebar"
+    "main sidebar"
+    "gallery gallery";
+  gap: 24px 36px;
+  align-items: start;
+}
+.proj-detail-inner--layout .proj-showcase--preview {
+  grid-area: preview;
+  padding: 0;
+}
+.proj-detail-inner--layout .proj-detail-sidebar {
+  grid-area: sidebar;
+  position: sticky;
+  top: 92px;
+}
+.proj-detail-inner--layout .proj-detail-main {
+  grid-area: main;
+  min-width: 0;
+}
+.proj-detail-inner--layout .proj-detail-block--gallery {
+  grid-area: gallery;
+}
 
 /* ── Pamje të Sistemit — preview (kompakt, në fillim) ── */
 .proj-showcase {
-  padding: 0 32px 28px;
-  background: var(--bg-page);
+  padding: 0;
+  background: transparent;
 }
 .proj-showcase-inner {
   max-width: 1280px; margin: 0 auto;
@@ -793,11 +820,11 @@
 }
 .proj-showcase--preview .proj-showcase-grid.is-preview {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
-  gap: clamp(12px, 3vw, 20px);
-  max-width: 560px;
-  margin: 0 auto;
+  gap: clamp(10px, 2vw, 18px);
+  max-width: 480px;
+  margin: 0;
 }
 .proj-showcase--preview .proj-showcase-item {
   flex: 1;
@@ -1054,6 +1081,21 @@
 
 @media (max-width: 1100px) {
   .home-proj-grid { gap: 18px; }
+  .proj-detail-inner--layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidebar"
+      "preview"
+      "main"
+      "gallery";
+    gap: 20px;
+  }
+  .proj-detail-inner--layout .proj-detail-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
   .proj-detail-fgroups { grid-template-columns: 1fr; }
   .proj-detail-roles { grid-template-columns: 1fr; }
   .proj-detail-bonus { flex-direction: column; padding: 22px 20px; }
@@ -1073,7 +1115,7 @@
   .home-proj-card:hover { transform: none; }
   .proj-detail-hero { padding: 20px 20px 24px; }
   .proj-detail-stats { margin-top: 18px; max-width: none; }
-  .proj-showcase { padding: 0 20px 20px; }
+  .proj-detail-body { padding: 20px 20px 64px; }
   .proj-showcase--preview .proj-showcase-grid.is-preview {
     max-width: 100%;
     gap: 10px;
@@ -1096,6 +1138,5 @@
     margin-top: 36px;
     padding-top: 32px;
   }
-  .proj-detail-body { padding: 24px 20px 64px; }
   .proj-detail-stats { grid-template-columns: 1fr; }
 }
