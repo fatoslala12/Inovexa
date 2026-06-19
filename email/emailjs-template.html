@@ -1,0 +1,87 @@
+<!--
+  EMAILJS — Template për formularin e kontaktit Inovexa
+
+  Hapat:
+  1. https://www.emailjs.com → regjistrohu falas
+  2. Email Services → shto Gmail (fatoslala9@gmail.com)
+  3. Email Templates → Create New Template
+  4. Kopjo gjithë HTML-në më poshtë (nga <table> deri në fund)
+  5. Subject i template-it: Kërkesë e re nga {{client_name}} · Inovexa SHPK
+  6. To Email: fatoslala9@gmail.com (ose lëre bosh — vendoset te Service)
+  7. From Name: Inovexa SHPK
+  8. Reply To: {{client_email}}
+  9. Ruaj dhe kopjo Service ID, Template ID, Public Key në js/email-config.js
+-->
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2fafa;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
+  <tr><td align="center">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #d4ecea;">
+      <tr>
+        <td style="background:linear-gradient(135deg,#3c968f 0%,#2d7a73 100%);padding:28px 32px;text-align:center;">
+          <img src="https://inovexa.al/assets/logo_inovexa.png" alt="Inovexa SHPK" width="140" style="display:block;margin:0 auto 16px;max-width:140px;height:auto;" />
+          <p style="margin:0;color:#ffffff;font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.9;">Kërkesë e re nga website</p>
+          <h1 style="margin:8px 0 0;color:#ffffff;font-size:22px;font-weight:700;">Inovexa SHPK</h1>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:28px 32px 12px;">
+          <p style="margin:0 0 8px;color:#1a2e2c;font-size:16px;font-weight:600;">Përshëndetje,</p>
+          <p style="margin:0;color:#4a6b68;font-size:15px;line-height:1.6;">Keni marrë një kërkesë të re nga formulari i kontaktit në <strong style="color:#3c968f;">inovexa.al</strong>.</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:8px 32px 28px;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e8f5f4;border-radius:12px;overflow:hidden;background:#f8fdfc;">
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;width:38%;font-size:14px;">Emri / Mbiemër</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{client_name}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Email</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;font-size:14px;"><a href="mailto:{{client_email}}" style="color:#3c968f;text-decoration:none;">{{client_email}}</a></td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Telefoni</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{client_phone}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Kompania</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{client_company}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Lloji i kompanisë</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{company_type}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Shërbimi</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{service}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#2d7a73;font-weight:600;font-size:14px;">Numri i punonjësve</td>
+              <td style="padding:12px 16px;border-bottom:1px solid #e8f5f4;color:#1a2e2c;font-size:14px;">{{employees}}</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;color:#2d7a73;font-weight:600;vertical-align:top;font-size:14px;">Mesazhi</td>
+              <td style="padding:12px 16px;color:#1a2e2c;font-size:14px;line-height:1.6;white-space:pre-wrap;">{{client_message}}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0 32px 28px;">
+          <a href="mailto:{{client_email}}?subject=Re: Kërkesa juaj — Inovexa SHPK" style="display:inline-block;padding:12px 24px;background:#3c968f;color:#ffffff;font-size:14px;font-weight:600;text-decoration:none;border-radius:8px;">Përgjigju klientit</a>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:20px 32px;background:#f8fdfc;border-top:1px solid #e8f5f4;text-align:center;">
+          <p style="margin:0 0 4px;color:#4a6b68;font-size:13px;">Inovexa SHPK · Tiranë, Shqipëri</p>
+          <p style="margin:0;color:#9ab5b3;font-size:12px;">
+            <a href="https://inovexa.al" style="color:#3c968f;text-decoration:none;">inovexa.al</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:info@inovexa.al" style="color:#3c968f;text-decoration:none;">info@inovexa.al</a>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </td></tr>
+</table>
