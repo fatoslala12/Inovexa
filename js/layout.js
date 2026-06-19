@@ -1,4 +1,14 @@
 (function () {
+  /* Font performance — preconnect */
+  [['https://fonts.googleapis.com', false], ['https://fonts.gstatic.com', true]].forEach(([href, cross]) => {
+    if (!document.querySelector('link[rel="preconnect"][href="' + href + '"]')) {
+      const l = document.createElement('link');
+      l.rel = 'preconnect'; l.href = href;
+      if (cross) l.crossOrigin = '';
+      document.head.insertBefore(l, document.head.firstChild);
+    }
+  });
+
   const PHONE_RAW = '00355684980913';
   const PHONE_TEL = '+355684980913';
   const PHONE_DISPLAY = '+355 68 498 0913';

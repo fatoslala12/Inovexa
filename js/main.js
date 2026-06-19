@@ -15,7 +15,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-['.services-grid', '.capabilities-grid', '.why-compact', '.testimonials-grid', '.blog-grid', '.proj-grid', '.career-list'].forEach(sel => {
+['.services-grid', '.capabilities-grid', '.why-compact', '.testimonials-grid', '.blog-grid', '.proj-grid', '.home-proj-grid', '.career-list'].forEach(sel => {
   document.querySelectorAll(sel).forEach(grid => {
     grid.querySelectorAll('.reveal').forEach((el, i) => {
       el.style.transitionDelay = `${Math.min(i, 8) * 65}ms`;
