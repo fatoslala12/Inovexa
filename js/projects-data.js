@@ -505,7 +505,7 @@
     const num = String(index + 1).padStart(2, '0');
 
     return (
-      '<a href="' + href + '" class="home-proj-card">' +
+      '<a href="' + href + '" class="home-proj-card reveal">' +
         '<div class="home-proj-visual">' +
           '<img src="' + asset(p.cover) + '" alt="' + p.shortTitle + '" loading="' + (index === 0 ? 'eager' : 'lazy') + '"' + (index === 0 ? ' fetchpriority="high"' : '') + '/>' +
           '<div class="home-proj-visual-shade"></div>' +
@@ -539,7 +539,7 @@
     const tags = p.tags.slice(0, 3).map(t => '<span class="proj-tag">' + t + '</span>').join('');
 
     return (
-      '<a href="' + href + '" class="proj-card proj-card--featured proj-card--has-img" data-id="' + id + '" data-cat="' + p.cat + '">' +
+      '<a href="' + href + '" class="proj-card proj-card--featured proj-card--has-img reveal" data-id="' + id + '" data-cat="' + p.cat + '">' +
         '<div class="proj-card-visual">' +
           '<img class="proj-card-cover" src="' + asset(p.cover) + '" alt="' + p.shortTitle + '" loading="lazy"/>' +
           '<span class="proj-card-badge proj-card-badge--real">' + p.liveLabel + '</span>' +

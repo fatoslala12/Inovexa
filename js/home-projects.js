@@ -3,4 +3,5 @@
   const grid = document.getElementById('homeProjGrid');
   if (!grid || !window.InovexaProjects) return;
   InovexaProjects.renderHomeGrid(grid);
+  if (window.InovexaAnimate) InovexaAnimate.refresh(grid);
 })();

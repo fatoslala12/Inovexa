@@ -154,9 +154,11 @@ function renderGrid() {
     card.addEventListener('click', () => openArticle(+card.dataset.id));
   });
 
-  document.querySelectorAll('.blog-grid .reveal').forEach(el => {
-    el.classList.add('visible');
+  grid.querySelectorAll('.reveal').forEach(el => {
+    delete el.dataset.revealBound;
+    el.classList.remove('visible');
   });
+  if (window.InovexaAnimate) InovexaAnimate.refresh(grid);
 
   renderPagination(totalPages, posts.length);
 }

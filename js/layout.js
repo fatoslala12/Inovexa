@@ -20,6 +20,14 @@
   const base = document.body.dataset.base || '';
   const page = document.body.dataset.page || '';
 
+  /* Animacione — CSS global */
+  if (!document.querySelector('link[href*="animations.css"]')) {
+    const animCss = document.createElement('link');
+    animCss.rel = 'stylesheet';
+    animCss.href = base + 'css/animations.css';
+    document.head.appendChild(animCss);
+  }
+
   /* Favicon & browser chrome (tab icon + mobile bar color) */
   if (!document.querySelector('link[rel="icon"]')) {
     const icon = document.createElement('link');
@@ -120,6 +128,17 @@
   </div>
 </div>`;
 
+  function footerCol(title, items) {
+    return (
+      '<div class="site-footer-col">' +
+        '<details class="site-footer-acc" open>' +
+          '<summary class="site-footer-acc-head"><h4>' + title + '</h4><span class="site-footer-acc-icon" aria-hidden="true"></span></summary>' +
+          '<ul>' + linkList(items) + '</ul>' +
+        '</details>' +
+      '</div>'
+    );
+  }
+
   const footerHTML = `
 <footer class="site-footer">
   <div class="site-footer-inner">
@@ -130,10 +149,10 @@
         </a>
         <p>Transformojmë bizneset shqiptare përmes teknologjisë moderne dhe zgjidhjeve digjitale të personalizuara.</p>
       </div>
-      <div class="site-footer-col"><h4>Kompania</h4><ul>${linkList(footerLinks.kompania)}</ul></div>
-      <div class="site-footer-col"><h4>Shërbimet</h4><ul>${linkList(footerLinks.sherbimet)}</ul></div>
-      <div class="site-footer-col"><h4>Portofoli</h4><ul>${linkList(footerLinks.portofoli)}</ul></div>
-      <div class="site-footer-col"><h4>Kontakt</h4><ul>${linkList(footerLinks.kontakt)}</ul></div>
+      ${footerCol('Kompania', footerLinks.kompania)}
+      ${footerCol('Shërbimet', footerLinks.sherbimet)}
+      ${footerCol('Portofoli', footerLinks.portofoli)}
+      ${footerCol('Kontakt', footerLinks.kontakt)}
     </div>
     <div class="site-footer-contacts">
       <a href="mailto:${EMAIL}"><span class="fc-icon">✉</span>${EMAIL}</a>
@@ -158,6 +177,22 @@
   const footerEl = document.getElementById('site-footer');
   if (headerEl) headerEl.outerHTML = headerHTML;
   if (footerEl) footerEl.outerHTML = footerHTML;
+
+  function initFooterAccordion() {
+    const accs = document.querySelectorAll('.site-footer-acc');
+    if (!accs.length) return;
+    const mq = window.matchMedia('(max-width: 768px)');
+    function apply() {
+      accs.forEach(d => {
+        if (mq.matches) d.removeAttribute('open');
+        else d.setAttribute('open', '');
+      });
+    }
+    apply();
+    if (mq.addEventListener) mq.addEventListener('change', apply);
+    else mq.addListener(apply);
+  }
+  initFooterAccordion();
 
   window.INOVEXA_PHONE = { raw: PHONE_RAW, tel: PHONE_TEL, display: PHONE_DISPLAY, whatsapp: WHATSAPP_URL };
 

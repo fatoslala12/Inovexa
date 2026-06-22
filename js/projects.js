@@ -3,6 +3,7 @@
   const grid = document.getElementById('projGrid');
   if (grid && window.InovexaProjects) {
     InovexaProjects.renderGrid(grid, InovexaProjects.ORDER);
+    if (window.InovexaAnimate) InovexaAnimate.refresh(grid);
   }
 
   document.querySelectorAll('.proj-filter').forEach(btn => {

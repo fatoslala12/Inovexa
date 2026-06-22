@@ -43,7 +43,7 @@ function renderProjectDetail() {
 
   function showcaseFrame(src, i, loading) {
     return (
-      '<figure class="proj-showcase-item' + (i === 0 ? ' is-featured' : '') + '">' +
+      '<figure class="proj-showcase-item' + (i === 0 ? ' is-featured' : '') + ' anim-showcase">' +
         '<div class="proj-showcase-frame">' +
           '<div class="proj-showcase-chrome" aria-hidden="true">' +
             '<span class="proj-showcase-dot"></span>' +
@@ -62,7 +62,7 @@ function renderProjectDetail() {
   const previewList = (p.previewImages || p.images || []).slice(0, 2);
 
   const previewSection = previewList.length
-    ? '<section class="proj-showcase proj-showcase--preview" aria-label="Pamje të sistemit">' +
+    ? '<section class="proj-showcase proj-showcase--preview reveal-scale" aria-label="Pamje të sistemit">' +
         '<div class="proj-showcase-inner">' +
           '<div class="proj-showcase-head">' +
             '<span class="proj-showcase-eyebrow">Pamje të Sistemit</span>' +
@@ -77,7 +77,7 @@ function renderProjectDetail() {
     : '';
 
   const fullGallerySection = p.images && p.images.length
-    ? '<div class="proj-detail-block proj-detail-block--gallery">' +
+    ? '<div class="proj-detail-block proj-detail-block--gallery reveal">' +
         '<h2 class="proj-detail-block-title">Pamje të Sistemit</h2>' +
         '<div class="proj-gallery-full">' +
           p.images.map(function (src, i) {
@@ -238,13 +238,13 @@ function renderProjectDetail() {
     : '';
 
   const statsHtml = p.stats.map(s =>
-    '<div class="proj-detail-stat">' +
+    '<div class="proj-detail-stat anim-stat">' +
       '<strong>' + s.v + '</strong><span>' + s.l + '</span>' +
     '</div>'
   ).join('');
 
   const sidebarHtml =
-    '<aside class="proj-detail-sidebar">' +
+    '<aside class="proj-detail-sidebar reveal-right">' +
       '<div class="proj-detail-side-card">' +
         '<h3>Teknologjitë</h3>' +
         '<div class="proj-detail-tags">' +
@@ -266,18 +266,18 @@ function renderProjectDetail() {
   root.innerHTML =
     '<header class="proj-detail-hero">' +
       '<div class="proj-detail-hero-inner">' +
-        '<nav class="breadcrumb proj-detail-crumb">' +
+        '<nav class="breadcrumb proj-detail-crumb anim-hero-in anim-hero-in--d1">' +
           '<a href="' + base + 'index.html">Kryefaqja</a><span>/</span>' +
           '<a href="' + base + 'pages/projektet.html">Projektet</a><span>/</span>' +
           '<span>' + p.shortTitle + '</span>' +
         '</nav>' +
-        '<div class="proj-detail-badges">' +
+        '<div class="proj-detail-badges anim-hero-in anim-hero-in--d2">' +
           '<span class="proj-detail-live">' + p.liveLabel + '</span>' +
           '<span class="proj-detail-year">' + p.year + '</span>' +
         '</div>' +
-        '<p class="proj-detail-client">' + p.client + '</p>' +
-        '<h1 class="proj-detail-title">' + p.title + '</h1>' +
-        (p.type ? '<p class="proj-detail-type">' + p.type + '</p>' : '') +
+        '<p class="proj-detail-client anim-hero-in anim-hero-in--d2">' + p.client + '</p>' +
+        '<h1 class="proj-detail-title anim-hero-in anim-hero-in--d3">' + p.title + '</h1>' +
+        (p.type ? '<p class="proj-detail-type anim-hero-in anim-hero-in--d4">' + p.type + '</p>' : '') +
         '<div class="proj-detail-stats">' + statsHtml + '</div>' +
       '</div>' +
     '</header>' +
@@ -323,6 +323,11 @@ function renderProjectDetail() {
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(ld);
   document.body.appendChild(script);
+
+  if (window.InovexaAnimate) {
+    InovexaAnimate.refresh(root);
+    document.body.classList.add('page-ready');
+  }
 }
 
 if (document.readyState === 'loading') {
