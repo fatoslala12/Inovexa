@@ -322,3 +322,166 @@ select {
   .btn-primary::after { display: none; }
   body::before { display: none; }
 }
+
+/* ── MOBILE GRAPHICS PRO — polish sitewide ── */
+@media (max-width: 768px) {
+  html { scroll-padding-top: 64px; }
+
+  a, button, .btn-primary, .btn-secondary, .proj-filter, .blog-filter, .svc-filter {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-primary:active,
+  .btn-secondary:active,
+  .proj-filter:active,
+  .blog-filter:active {
+    transform: scale(.98);
+    transition: transform .12s ease;
+  }
+
+  /* Navbar — glass i fortë */
+  .site-nav {
+    background: rgba(253, 251, 247, .94) !important;
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border-bottom: 1px solid rgba(217, 207, 192, .7);
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 4px 20px rgba(72, 58, 42, .04);
+  }
+  .site-nav-toggle:active {
+    background: var(--brand-light);
+    transform: scale(.94);
+  }
+
+  /* Hero ambient — faqe të brendshme */
+  .page-hero,
+  .svc-hero,
+  .contact-hero,
+  .blog-hero,
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before,
+  .svc-hero::before,
+  .contact-hero::before,
+  .blog-hero::before {
+    content: '';
+    position: absolute;
+    width: 280px; height: 280px;
+    top: -80px; right: -100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(60,150,143,.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Kartat — hije e butë, qoshe të rrumbullakosura */
+  .service-card,
+  .blog-card,
+  .proj-card,
+  .home-proj-card,
+  .why-compact-card,
+  .testi-card,
+  .cap-card {
+    border-radius: 18px !important;
+    box-shadow: 0 2px 12px rgba(72, 58, 42, .06), 0 1px 3px rgba(72, 58, 42, .04) !important;
+  }
+  .home-proj-card {
+    border-radius: 20px !important;
+  }
+  .home-proj-visual {
+    border-radius: 0;
+  }
+  .home-proj-live {
+    box-shadow: 0 2px 12px rgba(60,150,143,.4);
+  }
+
+  /* Filter pills — fade scroll */
+  .proj-filters::after,
+  .blog-filters::after,
+  .svc-filters::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 0; bottom: 8px;
+    width: 36px;
+    background: linear-gradient(to left, var(--bg-page) 20%, transparent);
+    pointer-events: none;
+  }
+  .proj-filter.active,
+  .blog-filter.active,
+  .svc-filter.active {
+    box-shadow: 0 3px 14px rgba(60,150,143,.32) !important;
+  }
+
+  /* Projekt detail — hero & stats */
+  .proj-detail-hero::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    bottom: -40px; left: -60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(60,150,143,.1) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .proj-detail-stat:active {
+    transform: scale(.98);
+  }
+  .proj-detail-side-card {
+    border-radius: 16px !important;
+    box-shadow: 0 2px 14px rgba(72, 58, 42, .06) !important;
+  }
+  .proj-detail-cta-card {
+    background: linear-gradient(165deg, var(--surface) 0%, var(--brand-xlight) 100%) !important;
+    border-color: rgba(60,150,143,.2) !important;
+  }
+  .proj-showcase-frame {
+    box-shadow: 0 6px 22px rgba(26,36,32,.08), 0 1px 4px rgba(26,36,32,.04) !important;
+  }
+  .proj-detail-fgroup {
+    border-radius: 14px !important;
+    box-shadow: 0 1px 8px rgba(72, 58, 42, .04);
+  }
+  .proj-detail-result {
+    border-radius: 16px !important;
+    background: linear-gradient(160deg, var(--brand-xlight) 0%, var(--surface) 100%) !important;
+    border: 1px solid rgba(60,150,143,.18) !important;
+  }
+
+  /* WhatsApp — glow më i bukur */
+  .whatsapp-float {
+    box-shadow: 0 4px 20px rgba(37,211,102,.4), 0 0 0 1px rgba(255,255,255,.25) inset !important;
+  }
+  .whatsapp-float:active { transform: scale(.92); }
+
+  /* Section tags */
+  .section-tag {
+    font-size: .68rem;
+    padding: 5px 12px 5px 9px;
+  }
+
+  /* Forma kontakt */
+  .contact-field input,
+  .contact-field textarea,
+  .contact-field select {
+    border-radius: 12px !important;
+    font-size: 16px !important; /* parandalon zoom në iOS */
+  }
+
+  /* CTA bands — gradient i butë */
+  .cta-band-light {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--brand-xlight) 100%) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .proj-detail-stats {
+    gap: 6px !important;
+  }
+  .proj-detail-stat strong {
+    font-size: .9rem !important;
+  }
+  .home-proj-card {
+    border-radius: 18px !important;
+  }
+  .section-title {
+    font-size: clamp(1.3rem, 5.2vw, 1.65rem) !important;
+  }
+}

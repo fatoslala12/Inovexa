@@ -61,17 +61,20 @@
 .proj-section-inner { max-width: 1280px; margin: 0 auto; }
 .proj-filters {
   display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+  position: relative;
 }
 .proj-filter {
   padding: 9px 20px; border-radius: 999px;
   font-size: .82rem; font-weight: 600; cursor: pointer;
   border: 1px solid var(--border); background: var(--surface); color: var(--text-mid);
   transition: all .25s ease; font-family: var(--font-body);
+  box-shadow: var(--shadow-sm);
 }
 .proj-filter:hover { border-color: var(--brand); color: var(--brand); }
 .proj-filter.active {
-  background: var(--brand); border-color: var(--brand); color: #fff;
-  box-shadow: 0 4px 16px rgba(60,150,143,.3);
+  background: linear-gradient(135deg, #45a39c, var(--brand-dark));
+  border-color: transparent; color: #fff;
+  box-shadow: 0 4px 18px rgba(60,150,143,.35);
 }
 
 /* Grid */
@@ -401,7 +404,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface) 0%, rgba(253,251,247,.98) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -709,10 +712,12 @@
   background: var(--bg-page);
   border: 1px solid var(--border);
   color: var(--text-mid);
+  white-space: normal;
+  line-height: 1.35;
 }
 
 /* ── FAQJA E DETAJEVE TË PROJEKTIT ── */
-.proj-detail-page { background: var(--bg-page); }
+.proj-detail-page { background: var(--bg-page); overflow-x: clip; }
 
 .proj-detail-hero {
   position: relative;
@@ -769,7 +774,7 @@
 }
 
 .proj-detail-body { padding: 28px 32px 80px; }
-.proj-detail-inner { max-width: 1280px; margin: 0 auto; }
+.proj-detail-inner { max-width: 1280px; margin: 0 auto; min-width: 0; }
 
 .proj-detail-inner--layout {
   display: grid;
@@ -942,13 +947,23 @@
   max-width: 720px;
 }
 .proj-detail-stat {
-  background: rgba(255,255,255,.92);
+  background: linear-gradient(165deg, rgba(255,255,255,.97) 0%, rgba(253,251,247,.9) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 18px 16px; text-align: center;
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(6px);
-  transition: border-color .25s, box-shadow .25s;
+  transition: border-color .25s, box-shadow .25s, transform .25s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.proj-detail-stat::before {
+  content: '';
+  position: absolute; top: 0; left: 12%; right: 12%;
+  height: 2px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--brand), #5bbfb8, transparent);
+  opacity: .85;
 }
 .proj-detail-stat:hover {
   border-color: rgba(60,150,143,.35);
@@ -1015,11 +1030,20 @@
   position: sticky; top: 100px;
 }
 .proj-detail-side-card {
-  background: var(--surface);
+  background: linear-gradient(165deg, var(--surface) 0%, rgba(253,251,247,.92) 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 24px;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+.proj-detail-side-card::after {
+  content: '';
+  position: absolute; top: 0; left: 8%; right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(60,150,143,.35), transparent);
+  pointer-events: none;
 }
 .proj-detail-side-card h3 {
   font-family: var(--font-display);
@@ -1027,6 +1051,11 @@
   margin-bottom: 14px; letter-spacing: -.2px;
 }
 .proj-detail-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.proj-detail-tags .proj-tag {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+}
 .proj-detail-stack { display: flex; flex-direction: column; gap: 8px; }
 .proj-detail-stack-item {
   background: var(--bg-page);
@@ -1084,17 +1113,18 @@
   .proj-detail-inner--layout {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "sidebar"
       "preview"
       "main"
+      "sidebar"
       "gallery";
     gap: 20px;
   }
   .proj-detail-inner--layout .proj-detail-sidebar {
     position: static;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
   }
   .proj-detail-fgroups { grid-template-columns: 1fr; }
   .proj-detail-roles { grid-template-columns: 1fr; }
@@ -1113,30 +1143,132 @@
   .home-proj-body { padding: 18px 20px 20px; }
   .home-proj-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
   .home-proj-card:hover { transform: none; }
-  .proj-detail-hero { padding: 20px 20px 24px; }
-  .proj-detail-stats { margin-top: 18px; max-width: none; }
-  .proj-detail-body { padding: 20px 20px 64px; }
+
+  /* ── Faqja e detajeve — mobile ── */
+  .proj-detail-hero {
+    padding: 16px 16px 20px;
+    background-size: cover;
+    background-position: 85% bottom;
+  }
+  .proj-detail-crumb {
+    font-size: .72rem;
+    margin-bottom: 10px;
+  }
+  .proj-detail-title {
+    font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+    letter-spacing: -.6px;
+    margin-bottom: 6px;
+  }
+  .proj-detail-type {
+    font-size: .82rem;
+    line-height: 1.5;
+  }
+  .proj-detail-client {
+    font-size: .7rem;
+    margin-bottom: 6px;
+  }
+  .proj-detail-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+    max-width: none;
+  }
+  .proj-detail-stat {
+    padding: 10px 6px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(72, 58, 42, .05);
+  }
+  .proj-detail-stat::before {
+    left: 18%; right: 18%;
+    height: 1.5px;
+  }
+  .proj-detail-stat strong {
+    font-size: clamp(.95rem, 3.8vw, 1.2rem);
+    letter-spacing: -.3px;
+  }
+  .proj-detail-stat span {
+    font-size: .62rem;
+    margin-top: 4px;
+    line-height: 1.3;
+  }
+
+  .proj-detail-body { padding: 16px 16px 56px; }
+  .proj-detail-inner--layout { gap: 16px; }
+
+  .proj-showcase-head { margin-bottom: 10px; }
   .proj-showcase--preview .proj-showcase-grid.is-preview {
     max-width: 100%;
-    gap: 10px;
+    gap: 8px;
   }
   .proj-showcase--preview .proj-showcase-item {
     max-width: none;
+    flex: 1;
   }
   .proj-showcase--preview .proj-showcase-item:first-child,
   .proj-showcase--preview .proj-showcase-item:last-child:not(:first-child) {
     transform: none;
   }
   .proj-showcase--preview .proj-showcase-screen img {
-    max-height: 100px;
+    max-height: 88px;
   }
+  .proj-showcase-chrome { padding: 5px 8px; }
+  .proj-showcase-url { font-size: .5rem; padding: 2px 5px; }
+
+  .proj-detail-side-card {
+    padding: 16px;
+    min-width: 0;
+  }
+  .proj-detail-side-card h3 {
+    font-size: .88rem;
+    margin-bottom: 10px;
+  }
+  .proj-detail-tags { gap: 6px; }
+  .proj-detail-tags .proj-tag {
+    font-size: .65rem;
+    padding: 4px 8px;
+  }
+  .proj-detail-stack-detailed { gap: 12px; }
+  .proj-detail-stack-group h4 {
+    font-size: .68rem;
+    margin-bottom: 6px;
+  }
+  .proj-detail-stack-tag {
+    font-size: .65rem;
+    padding: 4px 8px;
+  }
+  .proj-detail-cta-card p {
+    font-size: .82rem;
+    margin-bottom: 14px;
+  }
+
+  .proj-detail-block { margin-bottom: 28px; }
+  .proj-detail-block-title {
+    font-size: .95rem;
+    margin-bottom: 12px;
+  }
+  .proj-detail-desc {
+    font-size: .9rem;
+    line-height: 1.75;
+  }
+  .proj-detail-desc--lead {
+    font-size: .92rem;
+  }
+  .proj-detail-features li {
+    font-size: .86rem;
+    padding: 12px 14px 12px 40px;
+  }
+  .proj-detail-fgroup {
+    padding: 16px;
+  }
+
   .proj-gallery-full {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
   .proj-detail-block--gallery {
-    margin-top: 36px;
-    padding-top: 32px;
+    margin-top: 24px;
+    padding-top: 24px;
   }
-  .proj-detail-stats { grid-template-columns: 1fr; }
+  .proj-gallery-full .proj-showcase-chrome { padding: 8px 10px; }
+  .proj-gallery-full .proj-showcase-url { font-size: .62rem; }
 }

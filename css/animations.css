@@ -1,0 +1,260 @@
+/* ── INOVEXA — animacione scroll & micro-interactions ── */
+
+:root {
+  --anim-ease: cubic-bezier(.22, 1, .36, 1);
+  --anim-spring: cubic-bezier(.34, 1.45, .64, 1);
+  --anim-duration: .7s;
+}
+
+/* ── Scroll reveal (variante) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--anim-duration) var(--anim-ease),
+    transform var(--anim-duration) var(--anim-ease);
+  will-change: opacity, transform;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+.reveal-left.visible { opacity: 1; transform: none; }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity var(--anim-duration) var(--anim-ease), transform var(--anim-duration) var(--anim-ease);
+}
+.reveal-right.visible { opacity: 1; transform: none; }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(.94) translateY(16px);
+  transition: opacity .65s var(--anim-ease), transform .65s var(--anim-spring);
+}
+.reveal-scale.visible { opacity: 1; transform: none; }
+
+.reveal-fade {
+  opacity: 0;
+  transform: none;
+  transition: opacity .8s var(--anim-ease);
+}
+.reveal-fade.visible { opacity: 1; }
+
+/* ── Hyrje në ngarkim faqeje ── */
+.anim-hero-in {
+  opacity: 0;
+  transform: translateY(22px);
+}
+body.page-ready .anim-hero-in,
+#projectDetail .anim-hero-in {
+  animation: animHeroIn .85s var(--anim-ease) forwards;
+}
+body.page-ready .anim-hero-in--d1 { animation-delay: .08s; }
+body.page-ready .anim-hero-in--d2 { animation-delay: .16s; }
+body.page-ready .anim-hero-in--d3 { animation-delay: .24s; }
+body.page-ready .anim-hero-in--d4 { animation-delay: .32s; }
+body.page-ready .anim-hero-in--d5 { animation-delay: .4s; }
+
+@keyframes animHeroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Stat cards — pop stagger */
+.anim-stat {
+  opacity: 0;
+  transform: translateY(16px) scale(.96);
+}
+body.page-ready .anim-stat,
+#projectDetail .anim-stat,
+.reveal.visible .anim-stat {
+  animation: animStatPop .55s var(--anim-spring) forwards;
+}
+.anim-stat:nth-child(1) { animation-delay: .35s; }
+.anim-stat:nth-child(2) { animation-delay: .45s; }
+.anim-stat:nth-child(3) { animation-delay: .55s; }
+
+@keyframes animStatPop {
+  to { opacity: 1; transform: none; }
+}
+
+/* Showcase frames */
+.anim-showcase {
+  opacity: 0;
+  transform: translateY(20px) scale(.97);
+}
+body.page-ready .anim-showcase,
+#projectDetail .anim-showcase,
+.reveal.visible .anim-showcase,
+.reveal-scale.visible .anim-showcase {
+  animation: animShowcase .7s var(--anim-ease) forwards;
+}
+.anim-showcase:nth-child(2) { animation-delay: .12s; }
+
+@keyframes animShowcase {
+  to { opacity: 1; transform: none; }
+}
+
+/* Section title line grow */
+.proj-detail-block-title::before,
+.section-title {
+  transition: transform .5s var(--anim-ease);
+}
+.reveal.visible .proj-detail-block-title::before {
+  animation: lineGrow .6s var(--anim-ease) .1s both;
+}
+@keyframes lineGrow {
+  from { transform: scaleY(0); transform-origin: top; }
+  to   { transform: scaleY(1); }
+}
+
+/* Tags — fade in stagger */
+.anim-tag {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.reveal.visible .anim-tag,
+.visible .anim-tag {
+  animation: animTagIn .4s var(--anim-ease) forwards;
+}
+@keyframes animTagIn {
+  to { opacity: 1; transform: none; }
+}
+
+/* Kartat projekte — hyrje */
+.proj-card,
+.home-proj-card {
+  transition:
+    opacity .45s var(--anim-ease),
+    transform .45s var(--anim-ease),
+    box-shadow .35s,
+    border-color .3s;
+}
+.proj-card.reveal:not(.visible) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.proj-card.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Filtra — pulse kur aktivizohen */
+.proj-filter,
+.blog-filter,
+.svc-filter {
+  transition:
+    background .25s,
+    border-color .25s,
+    color .25s,
+    box-shadow .25s,
+    transform .2s var(--anim-spring);
+}
+.proj-filter.active,
+.blog-filter.active,
+.svc-filter.active {
+  animation: filterPop .35s var(--anim-spring);
+}
+@keyframes filterPop {
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Butonat — ripple i lehtë */
+.btn-primary,
+.btn-secondary {
+  transition: transform .25s var(--anim-ease), box-shadow .25s, background .25s;
+}
+.btn-primary:active:not(:disabled),
+.btn-secondary:active:not(:disabled) {
+  transform: scale(.97);
+}
+
+/* Navbar — fade in scroll */
+.site-nav {
+  transition: box-shadow .35s var(--anim-ease), background .35s, border-color .35s;
+}
+
+/* CTA band — shimmer i lehtë */
+.cta-band-light .btn-primary,
+.contact-submit {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gallery full — stagger */
+.proj-gallery-full .proj-showcase-item.reveal.visible {
+  animation: animShowcase .65s var(--anim-ease) both;
+}
+
+/* Floating elements — soft */
+@keyframes animFloatSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.anim-float {
+  animation: animFloatSoft 5s ease-in-out infinite;
+}
+
+/* Process steps — pulse ring on visible */
+.process-step-circle {
+  transition: transform .4s var(--anim-spring), box-shadow .4s;
+}
+.reveal.visible .process-step-circle {
+  animation: stepPulse .6s var(--anim-ease) .2s both;
+}
+@keyframes stepPulse {
+  from { transform: scale(.85); opacity: .6; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* Service card icon bounce */
+.reveal.visible .service-icon {
+  animation: iconBounce .55s var(--anim-spring) .15s both;
+}
+@keyframes iconBounce {
+  from { transform: scale(.8) rotate(-4deg); opacity: .5; }
+  to   { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+/* Proj detail loading */
+.proj-detail-loading-spinner {
+  animation: projSpin .7s linear infinite, pulseOpacity 1.2s ease-in-out infinite;
+}
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-fade,
+  .anim-hero-in, .anim-stat, .anim-showcase, .anim-tag, .anim-float {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: opacity .3s !important;
+  }
+  .reveal.visible { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    transform: translateY(18px);
+  }
+  .reveal-left { transform: translateY(18px); }
+  .reveal-right { transform: translateY(18px); }
+  .reveal.visible {
+    transform: none;
+  }
+}

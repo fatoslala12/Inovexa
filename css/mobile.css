@@ -371,17 +371,7 @@
     min-width: 0 !important;
   }
 
-  /* Footer */
-  .site-footer-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 22px 14px !important;
-  }
-  .site-footer-brand { grid-column: 1 / -1 !important; }
-  .site-footer-bar {
-    flex-direction: column;
-    text-align: center;
-    gap: 14px;
-  }
+  /* Footer — layout.css menaxhon mobile; mos override këtu */
   .site-footer-socials { justify-content: center; }
 
   /* Reduce hover motion on touch */
@@ -397,10 +387,81 @@
   .proj-detail-result { padding: 24px 22px; }
   .proj-detail-roles { grid-template-columns: 1fr !important; }
   .proj-detail-bonus-list { grid-template-columns: 1fr !important; }
+  .proj-detail-inner,
+  .proj-detail-inner--layout,
+  .proj-detail-main,
+  .proj-detail-sidebar,
+  .proj-detail-side-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* ── Grafikë mobile — projektet & detaje ── */
+  .proj-card {
+    border-radius: 18px !important;
+    overflow: hidden;
+  }
+  .proj-card-visual {
+    position: relative;
+  }
+  .proj-card-badge--real {
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(60,150,143,.3);
+  }
+  .proj-hero {
+    background: linear-gradient(165deg, #0d1f1e 0%, #1a3d3a 50%, #2d7a73 100%) !important;
+  }
+  .proj-hero::after {
+    content: '';
+    position: absolute;
+    width: 240px; height: 240px;
+    bottom: -60px; right: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(126,232,223,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .proj-hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0 !important;
+    padding-top: 20px !important;
+    margin-top: 24px !important;
+  }
+  .proj-hero-stat {
+    text-align: center;
+    padding: 12px 6px;
+    border-right: 1px solid rgba(255,255,255,.1);
+  }
+  .proj-hero-stat:last-child { border-right: none; }
+  .proj-hero-stat strong { font-size: 1.35rem !important; }
+  .proj-hero-stat span { font-size: .62rem !important; }
+
+  .proj-detail-block-title::before {
+    height: 16px;
+    border-radius: 3px;
+  }
+  .proj-detail-benefit {
+    border-radius: 8px;
+    background: var(--brand-light);
+    padding: 4px 8px;
+    font-size: .72rem;
+  }
+  .proj-detail-adv-tag {
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(72, 58, 42, .04);
+  }
+  .proj-gallery-full .proj-showcase-frame {
+    border-radius: 14px !important;
+  }
+
+  /* Scroll hint për filtra */
+  .proj-section-inner > .proj-filters {
+    margin-bottom: 24px !important;
+    padding-right: 8px;
+  }
 }
 
 @media (max-width: 480px) {
-  .site-footer-grid { grid-template-columns: 1fr !important; }
   .contact-hero-stats,
   .svc-hero-stats {
     grid-template-columns: 1fr !important;
@@ -429,8 +490,9 @@
   }
   .home-hero .hero-stats > div:last-child { border-bottom: none !important; }
   .proj-hero-stats {
-    flex-direction: column;
-    gap: 16px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    flex-direction: unset !important;
+    gap: 0 !important;
   }
   .contact-pill { flex: 1 1 100%; }
   .process-step { flex: 0 0 84px; }
