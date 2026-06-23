@@ -118,29 +118,33 @@
     padding: 68px 20px 44px !important;
   }
   .home-hero .hero-badge {
-    margin-bottom: 16px;
-    padding: 5px 12px;
-    font-size: .68rem;
-    letter-spacing: .6px;
+    align-self: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 12px;
+    padding: 6px 14px;
+    font-size: .7rem;
+    letter-spacing: .15px;
+    text-transform: none;
   }
   .home-hero h1 {
     font-size: clamp(1.75rem, 7.5vw, 2.2rem) !important;
     letter-spacing: -.9px !important;
-    line-height: 1.14 !important;
-    margin-bottom: 14px;
+    line-height: 1.12 !important;
+    margin-bottom: 8px;
   }
   .home-hero .hero-sub {
     font-size: .9rem;
-    line-height: 1.68;
+    line-height: 1.55;
     color: var(--text-mid);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     max-width: none;
   }
   .hero-actions {
     flex-direction: column;
     width: 100%;
     gap: 10px;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
