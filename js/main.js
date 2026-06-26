@@ -153,8 +153,8 @@ function filterProjects(btn, cat) {
   });
 }
 
-// Subtle parallax on homepage hero image
-if (document.body.classList.contains('home-page')) {
+// Subtle parallax on homepage hero image (desktop only)
+if (document.body.classList.contains('home-page') && window.matchMedia('(min-width: 769px)').matches) {
   const heroImg = document.querySelector('.hero-single');
   if (heroImg) {
     window.addEventListener('scroll', () => {
