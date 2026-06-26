@@ -3,8 +3,8 @@
 @media (max-width: 768px) {
   html { -webkit-text-size-adjust: 100%; }
 
-  /* Sections */
-  section,
+  /* Sections — përjashto hero (menaxhohet në home.css + layout.css) */
+  section:not(.home-hero),
   .section-compact { padding: 56px 20px !important; }
 
   .section-header {
@@ -113,68 +113,6 @@
     margin-top: 4px;
   }
 
-  /* Home hero — tipografi premium */
-  .home-hero {
-    padding: 68px 20px 44px !important;
-  }
-  .home-hero .hero-badge {
-    align-self: center;
-    width: fit-content;
-    max-width: 100%;
-    margin-bottom: 12px;
-    padding: 6px 14px;
-    font-size: .7rem;
-    letter-spacing: .15px;
-    text-transform: none;
-  }
-  .home-hero h1 {
-    font-size: clamp(1.75rem, 7.5vw, 2.2rem) !important;
-    letter-spacing: -.9px !important;
-    line-height: 1.12 !important;
-    margin-bottom: 8px;
-  }
-  .home-hero .hero-sub {
-    font-size: .9rem;
-    line-height: 1.55;
-    color: var(--text-mid);
-    margin-bottom: 16px;
-    max-width: none;
-  }
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary {
-    width: 100%;
-    justify-content: center;
-    padding: 14px 20px;
-    font-size: .9rem;
-  }
-  .home-hero .hero-stats {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0 !important;
-    max-width: none !important;
-  }
-  .home-hero .hero-stats > div {
-    background: transparent !important;
-    border: none !important;
-    border-right: 1px solid var(--border) !important;
-    border-radius: 0 !important;
-    padding: 14px 8px !important;
-    text-align: center;
-  }
-  .home-hero .hero-stats > div:last-child { border-right: none !important; }
-  .home-hero .hero-stat-val { font-size: 1.25rem !important; }
-  .home-hero .hero-stat-lbl {
-    font-size: .64rem;
-    line-height: 1.3;
-    margin-top: 4px;
-  }
-
   /* Capabilities */
   .capabilities { padding: 56px 20px !important; }
   .capabilities-header { margin-bottom: 32px !important; }
@@ -187,7 +125,20 @@
   /* Grids */
   .services-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
   .why-compact { grid-template-columns: 1fr !important; gap: 12px !important; }
-  .testimonials-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .testimonials-grid:not(.testimonials-grid--rich) { grid-template-columns: 1fr !important; gap: 14px !important; }
+
+  /* Testimonials rich — kolonë e vetme në mobile */
+  .home-page .testimonials-grid--rich {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    overflow: visible !important;
+    gap: 12px !important;
+  }
+  .home-page .testimonials-grid--rich .testi-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: unset !important;
+  }
 
   /* Process — horizontal scroll */
   .process-steps {
@@ -294,15 +245,62 @@
   }
   .career-list { gap: 12px !important; }
 
-  /* Contact shell */
-  .contact-shell {
-    padding: 0 16px !important;
-    margin-bottom: 28px !important;
+  /* Contact shell — contact.css menaxhon mobile */
+  .contact-page .contact-shell {
+    padding: 0 12px !important;
   }
-  .contact-shell > *:first-child {
+
+  /* Contact hero — kompakt */
+  .contact-hero {
+    padding: 20px 18px 18px !important;
+  }
+  .contact-hero-inner > div:first-child {
+    text-align: center;
+  }
+  .contact-hero-badge {
+    font-size: .68rem !important;
+    padding: 5px 12px !important;
+    margin-bottom: 12px !important;
+  }
+  .contact-hero h1 {
+    font-size: clamp(1.5rem, 6.2vw, 1.95rem) !important;
+    line-height: 1.16 !important;
+    margin-bottom: 10px !important;
+  }
+  .contact-hero-lead {
+    font-size: .86rem !important;
+    line-height: 1.6 !important;
+  }
+  .contact-hero-stats {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+  .contact-hero-stat {
+    padding: 12px 8px !important;
+    text-align: center;
+  }
+  .contact-hero-stat strong { font-size: 1.2rem !important; }
+  .contact-hero-stat span { font-size: .62rem !important; }
+
+  /* Contact main aside */
+  .contact-main-inner > aside {
+    padding: 22px 16px !important;
+  }
+  .contact-main-inner > aside .section-title {
+    font-size: clamp(1.35rem, 5vw, 1.65rem) !important;
+  }
+  .contact-info-card {
+    padding: 12px 14px !important;
+  }
+  .contact-info-label { font-size: .66rem !important; }
+  .contact-info-value { font-size: .86rem !important; }
+
+  /* Contact shell */
+  .contact-page .contact-shell > *:first-child {
     border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
   }
-  .contact-shell > *:last-child {
+  .contact-page .contact-shell > *:last-child {
     border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
   }
 
@@ -373,6 +371,22 @@
   .proj-modal-cta .btn-secondary {
     width: 100%;
     min-width: 0 !important;
+  }
+
+  /* Home page sections */
+  .home-page .section-header {
+    text-align: center;
+    align-items: center !important;
+  }
+  .home-page .section-header > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-page .section-sub {
+    max-width: 34ch;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Footer — layout.css menaxhon mobile; mos override këtu */
@@ -466,9 +480,11 @@
 }
 
 @media (max-width: 480px) {
-  .contact-hero-stats,
   .svc-hero-stats {
     grid-template-columns: 1fr !important;
+  }
+  .contact-hero-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .contact-hero-stat,
   .svc-hero-stat {
@@ -485,14 +501,6 @@
     border-bottom: 1px solid var(--border) !important;
   }
   .about-hero-stat:last-child { border-bottom: none !important; }
-  .home-hero .hero-stats {
-    grid-template-columns: 1fr !important;
-  }
-  .home-hero .hero-stats > div {
-    border-right: none !important;
-    border-bottom: 1px solid var(--border) !important;
-  }
-  .home-hero .hero-stats > div:last-child { border-bottom: none !important; }
   .proj-hero-stats {
     grid-template-columns: repeat(3, 1fr) !important;
     flex-direction: unset !important;

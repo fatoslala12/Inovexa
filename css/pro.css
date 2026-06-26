@@ -302,13 +302,29 @@ select {
 
 @media (max-width: 768px) {
   body::before { display: none; }
-  .trusted-marquee-wrap { flex-direction: column; }
+  .home-page { overflow-x: clip; }
+  .trusted-marquee-wrap {
+    flex-direction: column;
+    align-items: stretch;
+  }
   .trusted-marquee-label {
     justify-content: center;
-    padding: 12px 20px;
+    padding: 10px 16px;
     border-right: none;
     border-bottom: 1px solid var(--border);
-    font-size: .64rem;
+    font-size: .62rem;
+    letter-spacing: .9px;
+  }
+  .trusted-marquee-wrap .trusted-marquee {
+    padding: 12px 0;
+  }
+  .trusted-marquee-track {
+    gap: 40px;
+  }
+  .trusted-marquee-item {
+    font-size: .92rem !important;
+    opacity: .5;
+    letter-spacing: -.1px;
   }
   .service-card:hover,
   .why-compact-card:hover,
@@ -371,6 +387,13 @@ select {
     border-radius: 50%;
     background: radial-gradient(circle, rgba(60,150,143,.12) 0%, transparent 70%);
     pointer-events: none;
+  }
+
+  /* Home hero — ambient i lehtë mobile */
+  .home-hero::before {
+    background:
+      radial-gradient(ellipse 90% 50% at 50% 0%, rgba(60,150,143,.1) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 10% 100%, rgba(240,165,0,.05) 0%, transparent 50%);
   }
 
   /* Kartat — hije e butë, qoshe të rrumbullakosura */
