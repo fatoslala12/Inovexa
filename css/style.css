@@ -484,7 +484,7 @@
   .service-link svg { width: 14px; height: 14px; transition: transform .2s; }
   .service-card:hover .service-link svg { transform: translateX(4px); }
 
-  /* â”€â”€ WHY INOVEXA â”€â”€ */
+  /* â”€â”€ WHY LALVEXA â”€â”€ */
   .why { background: var(--bg-page); }
   .why-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
@@ -721,7 +721,7 @@
     .footer-top { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 640px) {
-    section { padding: 64px 20px; }
+    section:not(.home-hero) { padding: 64px 20px; }
     .hero { padding: 100px 20px 64px; }
     .hero-stats { gap: 24px; }
     .process-steps { grid-template-columns: repeat(2, 1fr); }
