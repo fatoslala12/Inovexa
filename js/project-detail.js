@@ -10,17 +10,17 @@ function renderProjectDetail() {
     if (loading) loading.hidden = true;
     if (root) { root.hidden = true; root.innerHTML = ''; }
     if (notFound) notFound.hidden = false;
-    document.title = 'Projekt i panjohur — Inovexa';
+    document.title = 'Projekt i panjohur — LalVexa';
   }
 
   if (!root) return;
 
-  if (!window.InovexaProjects) {
+  if (!window.LalVexaProjects) {
     if (loading) loading.textContent = 'Gabim ngarkimi. Rifreskoni faqen.';
     return;
   }
 
-  const p = InovexaProjects.get(id);
+  const p = LalVexaProjects.get(id);
   if (!p) {
     showNotFound();
     return;
@@ -31,9 +31,9 @@ function renderProjectDetail() {
   root.hidden = false;
 
   const base = document.body.dataset.base || '../';
-  const asset = InovexaProjects.asset.bind(InovexaProjects);
+  const asset = LalVexaProjects.asset.bind(LalVexaProjects);
 
-  document.title = p.shortTitle + ' — Inovexa';
+  document.title = p.shortTitle + ' — LalVexa';
   const metaDesc = document.querySelector('meta[name="description"]');
   if (metaDesc) metaDesc.content = p.shortDesc;
 
@@ -314,9 +314,9 @@ function renderProjectDetail() {
     '@type': 'CreativeWork',
     name: p.title,
     description: p.desc,
-    url: 'https://inovexa.al/pages/projekt.html?id=' + id,
-    image: 'https://inovexa.al/' + p.cover,
-    creator: { '@type': 'Organization', name: 'Inovexa SHPK', url: 'https://inovexa.al/' },
+    url: 'https://lalvexa.al/pages/projekt.html?id=' + id,
+    image: 'https://lalvexa.al/' + p.cover,
+    creator: { '@type': 'Organization', name: 'LalVexa SHPK', url: 'https://lalvexa.al/' },
     client: { '@type': 'Organization', name: p.client }
   };
   const script = document.createElement('script');
@@ -324,8 +324,8 @@ function renderProjectDetail() {
   script.textContent = JSON.stringify(ld);
   document.body.appendChild(script);
 
-  if (window.InovexaAnimate) {
-    InovexaAnimate.refresh(root);
+  if (window.LalVexaAnimate) {
+    LalVexaAnimate.refresh(root);
     document.body.classList.add('page-ready');
   }
 }

@@ -3,7 +3,7 @@ const BLOG_POSTS = [
     id: 13, cat: 'web', catLabel: 'Web',
     title: 'Zhvillim website në Tiranë: çfarë duhet të kërkoni nga agjencia juaj IT',
     excerpt: 'Çmimi, afati, SEO dhe mirëmbajtja — udhëzues praktik për bizneset që kërkojnë website profesional në Shqipëri.',
-    body: 'Kur kërkoni “zhvillim website Tiranë” ose “kompani web design Shqipëri”, ofertat mund të ndryshojnë shumë. Një website profesional nuk është vetëm dizajn: përfshin strategji përmbajtjeje, shpejtësi ngarkimi, optimizim SEO lokale, version mobil dhe plan mirëmbajtjeje. Pyetjet e duhura për agjencinë: a përdoret CMS i lehtë për ju, a merrni pronësinë e kodit, sa kushton mirëmbajtja vjetore dhe a përfshihet SSL + backup? Në Inovexa, çdo projekt web fillon me analizë të objektivave të biznesit — jo me template të përgjithshëm. Kjo është arsyeja pse klientët tanë shohin rritje të trafikut organik dhe më shumë kërkesa kontakti brenda muajve të parë.',
+    body: 'Kur kërkoni “zhvillim website Tiranë” ose “kompani web design Shqipëri”, ofertat mund të ndryshojnë shumë. Një website profesional nuk është vetëm dizajn: përfshin strategji përmbajtjeje, shpejtësi ngarkimi, optimizim SEO lokale, version mobil dhe plan mirëmbajtjeje. Pyetjet e duhura për agjencinë: a përdoret CMS i lehtë për ju, a merrni pronësinë e kodit, sa kushton mirëmbajtja vjetore dhe a përfshihet SSL + backup? Në LalVexa, çdo projekt web fillon me analizë të objektivave të biznesit — jo me template të përgjithshëm. Kjo është arsyeja pse klientët tanë shohin rritje të trafikut organik dhe më shumë kërkesa kontakti brenda muajve të parë.',
     image: '../assets/images/blog/web.jpg',
     readTime: '7 min', date: 'Qershor 2026'
   },
@@ -11,7 +11,7 @@ const BLOG_POSTS = [
     id: 14, cat: 'ai', catLabel: 'IT & Biznes',
     title: 'Transformimi digjital për PME në Shqipëri: nga ideja te rezultati në 90 ditë',
     excerpt: 'ERP, automatizim, AI dhe cloud — si të prioritizoni investimet teknologjike kur buxheti është i kufizuar.',
-    body: 'Transformimi digjital nuk do të thotë të blini çdo softuer në treg. Për bizneset shqiptare, hapat me ROI më të shpejtë janë: (1) website + Google Business i optimizuar, (2) automatizim i proceseve repetitive (fatura, raporte, lead management), (3) integrim WhatsApp/CRM, (4) dashboard për vendimmarrje. AI dhe chatbot-ët vijnë pas — kur keni të dhëna të strukturuara. Në 90 ditë, një PME mund të kalojë nga Excel i shpërndarë në sistem të integruar me raporte real-time. Inovexa kombinon përvojë nga sektori publik dhe privat për të ndërtuar zgjidhje që respektojnë buxhetin dhe rregulloret lokale. Fokusi: më pak punë manuale, më shumë rritje të matshme.',
+    body: 'Transformimi digjital nuk do të thotë të blini çdo softuer në treg. Për bizneset shqiptare, hapat me ROI më të shpejtë janë: (1) website + Google Business i optimizuar, (2) automatizim i proceseve repetitive (fatura, raporte, lead management), (3) integrim WhatsApp/CRM, (4) dashboard për vendimmarrje. AI dhe chatbot-ët vijnë pas — kur keni të dhëna të strukturuara. Në 90 ditë, një PME mund të kalojë nga Excel i shpërndarë në sistem të integruar me raporte real-time. LalVexa kombinon përvojë nga sektori publik dhe privat për të ndërtuar zgjidhje që respektojnë buxhetin dhe rregulloret lokale. Fokusi: më pak punë manuale, më shumë rritje të matshme.',
     image: '../assets/images/blog/digital.jpg',
     readTime: '8 min', date: 'Maj 2026'
   },
@@ -51,7 +51,7 @@ const BLOG_POSTS = [
     id: 5, cat: 'security', catLabel: 'Siguri',
     title: '5 hapa për të mbrojtur të dhënat e biznesit tuaj online',
     excerpt: 'Siguria digjitale nuk është opsionale. Udhëzues praktik për MSE-të shqiptare.',
-    body: 'SSL, backup automatik, autentifikim me dy faktorë, politika fjalëkalimesh dhe monitorim i aksesit — këto janë minimumi në 2025. Me përvojë në sisteme kritike qeveritare dhe shëndetësore, Inovexa ndërton platforma që respektojnë standardet më të larta të sigurisë së të dhënave.',
+    body: 'SSL, backup automatik, autentifikim me dy faktorë, politika fjalëkalimesh dhe monitorim i aksesit — këto janë minimumi në 2025. Me përvojë në sisteme kritike qeveritare dhe shëndetësore, LalVexa ndërton platforma që respektojnë standardet më të larta të sigurisë së të dhënave.',
     image: '../assets/images/blog/security.jpg',
     readTime: '5 min', date: 'Shkurt 2025'
   },
@@ -99,7 +99,7 @@ const BLOG_POSTS = [
     id: 11, cat: 'web', catLabel: 'Startup',
     title: 'Si të nisni një startup teknologjike në Shqipëri në 2025',
     excerpt: 'Ide, MVP, financim dhe ekosistemi lokal — udhëzues praktik nga ekspertët.',
-    body: 'Ekosistemi startup në Shqipëri po rritet. Hapat kryesorë: validoni idenë me 10 intervista klientësh, ndërtoni MVP brenda 4-8 javësh, përdorni cloud për të minimizuar kostot, dhe fokusoheni në një treg të vetëm para se të zgjeroni. Inovexa ofron konsultim falas për MVP.',
+    body: 'Ekosistemi startup në Shqipëri po rritet. Hapat kryesorë: validoni idenë me 10 intervista klientësh, ndërtoni MVP brenda 4-8 javësh, përdorni cloud për të minimizuar kostot, dhe fokusoheni në një treg të vetëm para se të zgjeroni. LalVexa ofron konsultim falas për MVP.',
     image: '../assets/images/blog/startup.jpg',
     readTime: '8 min', date: 'Gusht 2024'
   },
@@ -158,7 +158,7 @@ function renderGrid() {
     delete el.dataset.revealBound;
     el.classList.remove('visible');
   });
-  if (window.InovexaAnimate) InovexaAnimate.refresh(grid);
+  if (window.LalVexaAnimate) LalVexaAnimate.refresh(grid);
 
   renderPagination(totalPages, posts.length);
 }

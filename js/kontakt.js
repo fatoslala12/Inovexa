@@ -1,6 +1,6 @@
 (function () {
   const WEB3_KEY = (
-    window.INOVEXA_CONTACT?.web3formsAccessKey ||
+    window.LALVEXA_CONTACT?.web3formsAccessKey ||
     '481d6e2a-241a-4041-a1d2-b7c93638a845'
   ).trim();
 
@@ -42,14 +42,14 @@
   }
 
   function emailJsReady() {
-    const cfg = window.INOVEXA_EMAIL || {};
+    const cfg = window.LALVEXA_EMAIL || {};
     const hasKey = cfg.publicKey && cfg.publicKey !== 'PASTE_PUBLIC_KEY_HERE';
     const hasTemplate = cfg.templateId && cfg.templateId !== 'PASTE_TEMPLATE_ID_HERE';
     return cfg.serviceId && hasKey && hasTemplate && window.emailjs;
   }
 
   async function sendViaEmailJS(data) {
-    const cfg = window.INOVEXA_EMAIL;
+    const cfg = window.LALVEXA_EMAIL;
     emailjs.init({ publicKey: cfg.publicKey });
     await emailjs.send(cfg.serviceId, cfg.templateId, {
       client_name: data.name,
@@ -69,8 +69,8 @@
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
         access_key: WEB3_KEY,
-        subject: `Kërkesë e re nga ${data.name} · Inovexa SHPK`,
-        from_name: 'Inovexa SHPK',
+        subject: `Kërkesë e re nga ${data.name} · LalVexa SHPK`,
+        from_name: 'LalVexa SHPK',
         email: data.email,
         replyto: data.email,
         'Emri / Mbiemër': data.name,

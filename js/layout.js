@@ -13,9 +13,9 @@
   const PHONE_TEL = '+355684980913';
   const PHONE_DISPLAY = '+355 68 498 0913';
   const WHATSAPP_URL = 'https://wa.me/355684980913?text=' + encodeURIComponent('Përshëndetje! Dëshiroj të marr më shumë informacion për shërbimet tuaja.');
-  const EMAIL = 'info@inovexa.al';
-  const LINKEDIN_URL = 'https://al.linkedin.com/in/inovexashpk';
-  const INSTAGRAM_URL = 'https://www.instagram.com/Inovexa_shpk/';
+  const EMAIL = 'info@lalvexa.al';
+  const LINKEDIN_URL = 'https://al.linkedin.com/in/lalvexashpk';
+  const INSTAGRAM_URL = 'https://www.instagram.com/LalVexa_shpk/';
 
   const base = document.body.dataset.base || '';
   const page = document.body.dataset.page || '';
@@ -93,7 +93,7 @@
 <nav class="site-nav" id="navbar">
   <div class="site-nav-inner">
     <a href="${base}index.html" class="site-nav-logo">
-      <img src="${base}assets/logo_inovexa_transparent.png" alt="Inovexa" class="site-nav-logo-img"/>
+      <img src="${base}assets/logo_inovexa_transparent.png" alt="LalVexa" class="site-nav-logo-img"/>
     </a>
     <div class="site-nav-pill">
       <ul class="site-nav-links">
@@ -148,7 +148,7 @@
     <div class="site-footer-grid">
       <div class="site-footer-brand">
         <a href="${base}index.html" class="site-footer-logo">
-          <img src="${base}assets/logo_inovexa.png" alt="Inovexa"/>
+          <img src="${base}assets/logo_inovexa.png" alt="LalVexa"/>
         </a>
         <p>Transformojmë bizneset shqiptare përmes teknologjisë moderne dhe zgjidhjeve digjitale të personalizuara.</p>
       </div>
@@ -164,7 +164,7 @@
       <span class="site-footer-loc"><span class="fc-icon">📍</span>Tiranë, Shqipëri</span>
     </div>
     <div class="site-footer-bar">
-      <p>© ${new Date().getFullYear()} Inovexa Shpk · Të gjitha të drejtat e rezervuara</p>
+      <p>© ${new Date().getFullYear()} LalVexa Shpk · Të gjitha të drejtat e rezervuara</p>
       <div class="site-footer-socials">
         <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" aria-label="WhatsApp" class="sf-social sf-wa">${waIcon}</a>
         <a href="${LINKEDIN_URL}" target="_blank" rel="noopener" aria-label="LinkedIn" class="sf-social sf-li">${linkedinIcon}</a>
@@ -197,7 +197,7 @@
   }
   initFooterAccordion();
 
-  window.INOVEXA_PHONE = { raw: PHONE_RAW, tel: PHONE_TEL, display: PHONE_DISPLAY, whatsapp: WHATSAPP_URL };
+  window.LALVEXA_PHONE = { raw: PHONE_RAW, tel: PHONE_TEL, display: PHONE_DISPLAY, whatsapp: WHATSAPP_URL };
 
   const hamburger = document.getElementById('hamburger');
   const mobileOverlay = document.getElementById('mobileOverlay');

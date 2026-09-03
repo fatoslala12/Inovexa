@@ -1,4 +1,4 @@
-/* ── INOVEXA — të dhënat e projekteve (burim i vetëm) ── */
+/* ── LALVEXA — të dhënat e projekteve (burim i vetëm) ── */
 (function () {
   const DATA = {
     biblioteka: {
@@ -565,7 +565,7 @@
     container.innerHTML = (ids || ORDER).map(id => cardHtml(id)).join('');
   }
 
-  window.InovexaProjects = {
+  window.LalVexaProjects = {
     DATA,
     ORDER,
     HOME_ORDER,

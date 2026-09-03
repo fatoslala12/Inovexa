@@ -94,7 +94,7 @@ window.addEventListener('scroll', () => {
     });
   }
 
-  window.InovexaAnimate = {
+  window.LalVexaAnimate = {
     init: function (root) { initReveal(root); initCounters(root); },
     refresh: function (root) { initReveal(root); initCounters(root); }
   };

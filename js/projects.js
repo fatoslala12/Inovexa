@@ -1,9 +1,9 @@
 /* ── Faqja Projektet — grid + filtra ── */
 (function () {
   const grid = document.getElementById('projGrid');
-  if (grid && window.InovexaProjects) {
-    InovexaProjects.renderGrid(grid, InovexaProjects.ORDER);
-    if (window.InovexaAnimate) InovexaAnimate.refresh(grid);
+  if (grid && window.LalVexaProjects) {
+    LalVexaProjects.renderGrid(grid, LalVexaProjects.ORDER);
+    if (window.LalVexaAnimate) LalVexaAnimate.refresh(grid);
   }
 
   document.querySelectorAll('.proj-filter').forEach(btn => {
