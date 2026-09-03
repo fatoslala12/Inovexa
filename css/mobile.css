@@ -81,8 +81,16 @@
   .about-hero-lead {
     font-size: .88rem !important;
     line-height: 1.65 !important;
-    margin-bottom: 18px !important;
+    margin-bottom: 14px !important;
   }
+  .about-name-meaning {
+    margin-bottom: 18px !important;
+    padding: 14px 14px !important;
+    max-width: none;
+  }
+  .about-name-meaning-title { font-size: 1.2rem; }
+  .about-name-meaning-text { font-size: .86rem; }
+  .about-name-meaning-sub { font-size: .76rem; }
   /* About hero stats — unified grid */
   .about-hero-stats {
     display: grid !important;

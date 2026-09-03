@@ -32,7 +32,45 @@
 }
 .about-hero-lead {
   font-size: 1.1rem; color: var(--text-mid); line-height: 1.75;
-  max-width: 640px; margin-bottom: 32px;
+  max-width: 640px; margin-bottom: 20px;
+}
+.about-name-meaning {
+  max-width: 520px;
+  margin-bottom: 28px;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, rgba(60,150,143,.08) 0%, rgba(253,251,247,.9) 100%);
+  border: 1px solid rgba(60,150,143,.22);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60,150,143,.06);
+}
+.about-name-meaning-label {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--brand);
+  margin-bottom: 6px;
+}
+.about-name-meaning-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -.4px;
+  margin-bottom: 4px;
+}
+.about-name-meaning-text {
+  font-size: .92rem;
+  color: var(--text-dark);
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+.about-name-meaning-text strong { color: var(--brand); }
+.about-name-meaning-sub {
+  font-size: .8rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+  margin: 0;
 }
 .about-hero-stats {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
