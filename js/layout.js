@@ -150,7 +150,7 @@
         <a href="${base}index.html" class="site-footer-logo">
           <img src="${base}assets/logo_inovexa.png" alt="LalVexa"/>
         </a>
-        <p>Transformojmë bizneset shqiptare përmes teknologjisë moderne dhe zgjidhjeve digjitale të personalizuara.</p>
+        <p><strong>LalVexa</strong> — Lala Vision, EXcellence Advancement. Transformojmë bizneset shqiptare përmes teknologjisë moderne dhe zgjidhjeve digjitale të personalizuara.</p>
       </div>
       ${footerCol('Kompania', footerLinks.kompania)}
       ${footerCol('Shërbimet', footerLinks.sherbimet)}
